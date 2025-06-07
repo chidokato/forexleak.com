@@ -58,11 +58,11 @@
       var wrapper = document.querySelector(":root");
 
       if (active) {
-        wrapper.setAttribute("data-bs-theme", "dark");
-        localStorage.setItem("theme", "dark");
-      } else {
         wrapper.setAttribute("data-bs-theme", "light");
         localStorage.setItem("theme", "light");
+      } else {
+        wrapper.setAttribute("data-bs-theme", "dark");
+        localStorage.setItem("theme", "dark");
       }
     };
 
