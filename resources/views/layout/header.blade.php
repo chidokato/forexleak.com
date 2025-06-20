@@ -6,7 +6,7 @@
                 <div class="row align-items-center">
                     <div class="col-xl-2 col-lg-2 col-5">
                         <div class="logo-wrapper">
-                            <a href="{{asset('')}}"><img src="assets/img/logo-white.png" alt="logo" class="logo"></a>
+                            <a href="{{asset('')}}"><img src="data/images/{{$setting->img}}" alt="logo" class="logo"></a>
                         </div>
                     </div>
                     <div class="col-xl-8 col-lg-7 d-none d-lg-block">
