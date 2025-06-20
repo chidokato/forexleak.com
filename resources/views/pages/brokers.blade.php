@@ -44,11 +44,14 @@
                     <h2 class="host-web-title text-white fs-48 fw-800 mb-30">
                         Looking For Good  <br><span class="host-web-gd-text">Forex Broker?</span>
                     </h2>
-                    <p class="text-white mb-0">A trustworthy broker provides competitive spreads, fast trade execution, and secure fund protection — all essential for a smooth trading experience. But with countless brokers out there, making the right choice can be overwhelming. Need guidance? Explore our comprehensive guide on How to Choose the Right Forex Broker and find the perfect match for your trading needs!</p>
+                    <div class="">
+                        {!! $data->content !!}
+                    </div>
                 </div>
             </div>
         </div>
         
+        @foreach($data->Section as $val)
         <div class="host-web-price-item bg-white p-4 pt-30 rounded-3 mt-20 position-relative z-1">
             <!-- <div class="sale-badge text-center position-absolute z--1">
                 <span class="text-white fw-bold">30% Sale</span>
@@ -89,7 +92,8 @@
                 </div>
             </div>
         </div>
-        
+        @endforeach
+
     </div>
 </div>
 <!-- Price -->
