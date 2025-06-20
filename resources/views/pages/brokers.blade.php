@@ -63,7 +63,7 @@
                             <img src="https://www.forexcracked.com/wp-content/uploads/elementor/thumbs/exness-logo-ForexCracked.com_-e1743009751580-r3frzh605c3tcvdh8j7xa9xnw0bxaj65r7gm4iujgg.png" alt="" class="img-fluid">
                         </div>
                         <div class="host-web-content">
-                            <h5 class="text-black fs-24 mb-10">Exness</h5>
+                            <h5 class="text-black fs-24 mb-10">{{ $val->heading }}</h5>
                             <p class="mb-0">Exness is a globally trusted forex broker known for ultra-fast execution, low trading costs, and instant 24/7 withdrawals!</p>
                         </div>
                     </div>
@@ -71,14 +71,7 @@
                 <div class="col-xl-7">
                     <div class="row align-items-center">
                         <div class="col-md-9">
-                            <ul class="host-web-price-list d-flex align-items-center justify-content-between flex-wrap gap-5">
-                                <li class="fs-14 fw-500">Regulation <span class="text-black fw-800">CySEC, FSA-S, FCA</span></li>
-                                <li class="fs-14 fw-500">Operating since <span class="text-black fw-800">2008</span></li>
-                                <li class="fs-14 fw-500">Minimum Deposit <span class="text-black fw-800">$10</span></li>
-                                <li class="fs-14 fw-500">Small Accounts <span class="text-black fw-800">Yes ✅ (Cent)</span></li>
-                                <li class="fs-14 fw-500">Max Leverage <span class="text-black fw-800">1:2000</span></li>
-                                <li class="fs-14 fw-500">Platforms <span class="text-black fw-800">MT4, MT5</span></li>
-                            </ul>
+                            {!! $val->content !!}
                         </div>
                         <div class="col-md-3">
                             <div class="pl-40 mb-3">
