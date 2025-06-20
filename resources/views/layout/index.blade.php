@@ -76,7 +76,7 @@
     <script src="assets/js/vendors/counterup.js"></script>
     <script src="assets/js/vendors/isotop.pkgd.min.js"></script>
     <script src="assets/js/vendors/countdown.min.js"></script>
-    <script src="assets/cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- <script src="assets/cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> -->
     <script src="assets/js/app.js"></script>
     <!--endbuild-->
     

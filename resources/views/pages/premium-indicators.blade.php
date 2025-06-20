@@ -1,0 +1,118 @@
+@extends('layout.index')
+
+@section('title') {{$data->title ? $data->title : $data->name}} @endsection
+@section('description') {{$data->description}} @endsection
+@section('robots') index, follow @endsection
+@section('url'){{asset('')}}@endsection
+
+@section('css')
+<!-- <link href="assets/css/about.css" rel="stylesheet"> -->
+@endsection
+
+@section('content')
+
+<!--breadcrumb area start-->
+<!-- <section class="breadcrumb-area bg-primary-gradient">
+    <div class="container">
+        <div class="breadcrumb-content text-center">
+            <h2 class="mb-3">{{$data->name}}</h2>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{asset('')}}">Home</a></li>
+                    <li class="breadcrumb-item active">{{$data->name}}</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</section> -->
+<!--breadcrumb area end-->
+
+
+<!--pricing section-->
+<section class="pricing-tab-section light-bg pb-120 position-relative zindex-1 overflow-hidden">
+    <img src="assets/img/shapes/line-red-top.png" alt="line shape" class="position-absolute right-top d-none d-lg-block">
+    <img src="assets/img/shapes/line-red.svg" alt="line shape" class="position-absolute left-bottom">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="section-heading text-center">
+                    <h2>Our Plans</h2>
+                    <div class="tab-switch-btn d-inline-flex align-items-center justify-content-center position-relative mt-4">
+                        <span class="monthly fw-bold">One Time</span>
+                        <input type="checkbox" class="switch-input position-absolute">
+                        <span class="toggle-switch-btn rounded-pill position-relative"></span>
+                        <span class="yearly fw-bold">Life Time</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pricing-wrapper position-relative zindex-1">
+            <img src="assets/img/shapes/frame.svg" alt="frame" class="position-absolute frame-shape">
+            <div class="row g-4 justify-content-center mt-4">
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="pricing-column overflow-hidden position-relative bg-white rounded-10 deep-shadow">
+                        <h3 class="h5 S234">Starter</h3>
+                        <span class="pricing-label d-block mt-2 mb-4">Indicator Collection Only</span>
+                        <h4 class="h2 mt-2 monthly-price">$39.99<span>/mo</span></h4>
+                        <h4 class="h2 mt-2 yearly-price">$390.99<span>/yr</span></h4>
+                        <!-- <p class="mt-4">Packed with great features, such as oneclick software installs,24/7 support</p> -->
+                        <ul class="feature-list mt-4">
+                            <li><span class="me-2"><i class="fa-solid fa-times"></i></span>Forex Signals</li>
+                            <li><span class="me-2"><i class="fa-solid fa-times"></i></span>VIP Group</li>
+                            <li><span class="me-2"><i class="fa-solid fa-times"></i></span>Beginer Course</li>
+                            <li><span class="me-2"><i class="fa-solid fa-times"></i></span>cPanel Control Panel</li>
+                            <li><span class="me-2"><i class="fa-solid fa-check"></i></span>Indicator Collection</li>
+                        </ul>
+                        <a href="#" class="template-btn secondary-btn w-100 text-center mt-40">Purchase Plan</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="pricing-column overflow-hidden position-relative bg-white rounded-10 deep-shadow">
+                        <h3 class="h5 S234">Starter</h3>
+                        <span class="popular-badge position-absolute text-center fw-bold">Most Popular</span>
+                        <span class="pricing-label d-block mt-2 mb-4">Indicator Collection Only</span>
+                        <h4 class="h2 mt-2 monthly-price">$39.99<span>/mo</span></h4>
+                        <h4 class="h2 mt-2 yearly-price">$390.99<span>/yr</span></h4>
+                        <!-- <p class="mt-4">Packed with great features, such as oneclick software installs,24/7 support</p> -->
+                        <ul class="feature-list mt-4">
+                            <li><span class="me-2"><i class="fa-solid fa-times"></i></span>Forex Signals</li>
+                            <li><span class="me-2"><i class="fa-solid fa-times"></i></span>VIP Group</li>
+                            <li><span class="me-2"><i class="fa-solid fa-times"></i></span>Beginer Course</li>
+                            <li><span class="me-2"><i class="fa-solid fa-times"></i></span>cPanel Control Panel</li>
+                            <li><span class="me-2"><i class="fa-solid fa-check"></i></span>Indicator Collection</li>
+                        </ul>
+                        <a href="#" class="template-btn secondary-btn w-100 text-center mt-40">Purchase Plan</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="pricing-column overflow-hidden position-relative bg-white rounded-10 deep-shadow">
+                        <h3 class="h5 S234">Starter</h3>
+                        <span class="pricing-label d-block mt-2 mb-4">Indicator Collection Only</span>
+                        <h4 class="h2 mt-2 monthly-price">$39.99<span>/mo</span></h4>
+                        <h4 class="h2 mt-2 yearly-price">$390.99<span>/yr</span></h4>
+                        <!-- <p class="mt-4">Packed with great features, such as oneclick software installs,24/7 support</p> -->
+                        <ul class="feature-list mt-4">
+                            <li><span class="me-2"><i class="fa-solid fa-times"></i></span>Forex Signals</li>
+                            <li><span class="me-2"><i class="fa-solid fa-times"></i></span>VIP Group</li>
+                            <li><span class="me-2"><i class="fa-solid fa-times"></i></span>Beginer Course</li>
+                            <li><span class="me-2"><i class="fa-solid fa-times"></i></span>cPanel Control Panel</li>
+                            <li><span class="me-2"><i class="fa-solid fa-check"></i></span>Indicator Collection</li>
+                        </ul>
+                        <a href="#" class="template-btn secondary-btn w-100 text-center mt-40">Purchase Plan</a>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+    </div>
+</section>
+<!--pricing section end-->
+
+@endsection
+
+@section('js')
+
+@endsection

@@ -144,7 +144,7 @@ Route::prefix('account')->group(function () {
 
 
 Route::get('location/{slug}', [HomeController::class, 'province']);
-Route::get('{slug}', [HomeController::class, 'category']);
+Route::get('{slug}', [HomeController::class, 'slugHandler']);
 Route::get('{catslug}/{slug}', [HomeController::class, 'post']);
 
 

@@ -52,6 +52,36 @@ class HomeController extends Controller
         ));
     }
 
+    public function slugHandler($slug)
+    {
+        // Kiểm tra có phải category không
+        $category = Category::where('slug', $slug)->first();
+        if ($category) {
+            return $this->category(request(), $slug);
+        }
+
+        // Kiểm tra có phải post không
+        $post = Post::where('slug', $slug)->first();
+        if ($post) {
+            return $this->page(request(), $slug);
+        }
+
+        // Không có thì 404
+        abort(404);
+    }
+
+    public function page(Request $request, $slug)
+    {
+        $data = Post::where('slug', $slug)->firstOrFail();
+        if ($slug=='brokers') {
+            return view('pages.brokers', compact('data'));
+        }
+
+        if ($slug=='premium-indicators') {
+            return view('pages.premium-indicators', compact('data'));
+        }
+    }
+
     public function category(Request $request, $slug)
     {
         $data = Category::where('slug', $slug)->first();
