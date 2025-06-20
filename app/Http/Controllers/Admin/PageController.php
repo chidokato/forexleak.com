@@ -44,12 +44,11 @@ class PageController extends Controller
 
     public function index(Request $request)
     {
-        $category = Category::where('sort_by', 'Product')->where('parent', '0')->orderBy('view', 'DESC')->get();
         $perPage = $request->get('per_page', 10); // Mặc định là 20 nếu không có lựa chọn
         $key = $request->get('key', '');
         $sort = $request->get('sort', 'desc'); // Mặc định là sắp xếp giảm dần
         
-        $query = Post::query()->where('sort_by', 'Product')->orderBy('id', 'DESC');
+        $query = Post::query()->where('sort_by', 'page')->orderBy('id', 'DESC');
 
         if ($key) {
             $query->where('name', 'like', '%' . $key . '%');
@@ -62,7 +61,6 @@ class PageController extends Controller
 
         return view('admin.page.index', compact(
             'posts',
-            'category',
         ));
     }
 
@@ -88,90 +86,45 @@ class PageController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        // dd($request->has('for_sale'));
         $post = new Post();
         $post->user_id = Auth::User()->id;
         $post->status = 'true';
-        $post->sort_by = 'Product';
+        $post->sort_by = 'page';
         $post->name = $data['name'];
+        $post->content = $data['content'];
         $post->slug = Str::slug($data['name'], '-');
-        $post->category_id = $data['category_id'];
         
-        $post->price = str_replace('.', '', $data['price']);
-        $post->price_max = str_replace('.', '', $data['price_max']);
-        $post->acreage = $data['acreage'];
-        $post->acreage_max = $data['acreage_max'];
-        $post->bedroom = $data['bedroom'];
-        $post->bedroom_max = $data['bedroom_max'];
-        $post->wc = $data['wc'];
-        $post->wc_max = $data['wc_max'];
-        $post->total_product = $data['total_product'];
-        
-        $post->province_id = $data['province'];
-        $post->district_id = $data['district'];
-        $post->ward_id = $data['ward'];
-        $post->street_id = $data['street'];
-        $post->address = $data['address'];
-
-        $post->monopoly = $request->has('monopoly');
-        $post->for_sale = $request->has('for_sale');
-        $post->new_product = $request->has('new_product');
         $post->title = $data['title'];
         $post->description = $data['description'];
         
         // thêm ảnh
         if ($request->hasFile('img')) {
             $file = $request->file('img');
-            // $filename = saveImage($file); // Gọi hàm saveImage từ helper
             $filename = $this->saveImage($file);
             $post->img = $filename;
         }
         // ---------------------
         $post->save();
-        // thêm ảnh chi tiết
-        if($request->hasFile('imgdetail')){
-            foreach ($request->file('imgdetail') as $file) {
-                if(isset($file)){
-                    $Images = new Images();
-                    $Images->post_id = $post->id;
-                    // $filename = saveImage($file); // Gọi hàm saveImage từ helper
-                    $filename = $this->saveImage($file);
-                    $Images->img = $filename;
-                    $Images->name = $filename;
-                    $Images->save();
-                }
-            }
-        }
 
         // Thêm section
-        if (isset($data['tab'])) {
-            foreach($data['tab'] as $key => $tab){
-                $section = new Section();
-                $section->post_id = $post->id;
-                $section->stt = $data['stt'][$key];
-                $section->tab = $tab;
-                $section->heading = $data['heading'][$key];
-                $section->content = $data['content'][$key];
-                $section->status = 1;
-                $section->save();
+        // if (isset($data['heading'])) {
+        //     foreach($data['heading'] as $key => $heading){
+        //         $section = new Section();
+        //         $section->post_id = $post->id;
+        //         $section->heading = $heading;
+        //         $section->content = $data['content_ss'][$key];
 
-                if($request->hasFile('img_ss'.$key.'')){
-                    foreach ($request->file('img_ss'.$key.'') as $file) {
-                    if(isset($file)){
-                            $Images = new Images();
-                            $Images->post_id = $post->id;
-                            $Images->section_id = $section->id;
-                            // $filename = saveImage($file); // Gọi hàm saveImage từ helper
-                            $filename = $this->saveImage($file);
-                            $Images->img = $filename;
-                            $Images->name = $filename;
-                            $Images->save();
-                        }
-                    }
-                }
+        //         // thêm ảnh
+        //         $imgFiles = $request->file('img_ss');
+        //         if (isset($imgFiles[$key]) && $imgFiles[$key]->isValid()) {
+        //             $file = $imgFiles[$key];
+        //             $filename = $this->saveImage($file);
+        //             $section->img = $filename;
+        //         }
 
-            }
-        }
+        //         $section->save();
+        //     }
+        // }
 
         return redirect('admin/page')->with('Success','Success');
         // return response()->json(['success' => 'Success']);
@@ -196,23 +149,11 @@ class PageController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::where('sort_by', 'Product')->get();
         $data = Post::find($id);
-        $images = Images::where('post_id', $data->id)->where('section_id', null)->get();
-        $section = Section::where('post_id', $data->id)->orderBy('stt', 'ASC')->get();
-        $province = Province::get();
-        $district = District::where('province_id', $data->province_id)->get();
-        $ward = Ward::where('district_id', $data->district_id)->get();
-        $street = Street::where('district_id', $data->district_id)->get();
-        return view('admin.post.edit')->with(compact(
-            'category',
+        $section = Section::where('post_id', $data->id)->get();
+        return view('admin.page.edit')->with(compact(
             'data',
-            'images',
             'section',
-            'province',
-            'district',
-            'ward',
-            'street',
         ));
     }
 
@@ -231,116 +172,52 @@ class PageController extends Controller
         $post->name = $data['name'];
         $post->slug = $data['slug'];
         $post->content = $data['content0'];
-        $post->category_id = $data['category_id'];
-        
-        $post->price = str_replace('.', '', $data['price']);
-        $post->price_max = str_replace('.', '', $data['price_max']);
-        $post->acreage = $data['acreage'];
-        $post->acreage_max = $data['acreage_max'];
-        $post->bedroom = $data['bedroom'];
-        $post->bedroom_max = $data['bedroom_max'];
-        $post->wc = $data['wc'];
-        $post->wc_max = $data['wc_max'];
-        $post->total_product = $data['total_product'];
-        
-        $post->province_id = $data['province'];
-        $post->district_id = $data['district'];
-        $post->ward_id = $data['ward'];
-        $post->street_id = $data['street'];
-        $post->address = $data['address'];
-
-        $post->monopoly = $request->has('monopoly');
-        $post->for_sale = $request->has('for_sale');
-        $post->new_product = $request->has('new_product');
         $post->title = $data['title'];
         $post->description = $data['description'];
-
         if ($request->hasFile('img')) {
             if(File::exists('data/images/'.$post->img)) { File::delete('data/images/'.$post->img);} // xóa ảnh cũ
             $file = $request->file('img');
-            // $filename = saveImage($file); // Gọi hàm saveImage từ helper
             $filename = $this->saveImage($file);
             $post->img = $filename;
         }
-
-
-
-
-        
-
-        // thêm ảnh chi tiết
-        if($request->hasFile('imgdetail')){
-            foreach ($request->file('imgdetail') as $file) {
-                if(isset($file)){
-                    $Images = new Images();
-                    $Images->post_id = $post->id;
-                    // $filename = saveImage($file); // Gọi hàm saveImage từ helper
-                    $filename = $this->saveImage($file);
-                    $Images->img = $filename;
-                    $Images->name = $filename;
-                    $Images->save();
-                }
-            }
-        }
         // sửa section
-        if (isset($data['id-edit'])) {
-            foreach($data['id-edit'] as $key => $id_edit){
+        if (isset($data['id_edit'])) {
+            foreach($data['id_edit'] as $key => $id_edit){
                 $section = Section::find($id_edit);
-                $section->stt = $data['stt-edit'][$key];
-                $section->tab = $data['tab-edit'][$key];
-                $section->heading = $data['heading-edit'][$key];
-                $section->content = $data['content-edit'][$key];
-                $section->status = $data['status'][$key];
-                $section->save();
-
-                if($request->hasFile('img_ss-edit'.$key.'')){
-                    foreach ($request->file('img_ss-edit'.$key.'') as $file) {
-                    if(isset($file)){
-                        $Images = new Images();
-                        $Images->post_id = $post->id;
-                        $Images->section_id = $section->id;
-                        // $filename = saveImage($file); // Gọi hàm saveImage từ helper
+                if ($section) {
+                    $section->heading = $data['heading_edit'][$key] ?? '';
+                    $section->content = $data['content_edit'][$key] ?? '';
+                    // Lấy file ảnh tương ứng
+                    $imgFiles = $request->file('img_ss_edit');
+                    if (isset($imgFiles[$key]) && $imgFiles[$key]->isValid()) {
+                        $file = $imgFiles[$key];
                         $filename = $this->saveImage($file);
-                        $Images->img = $filename;
-                        $Images->name = $filename;
-                        $Images->save();
-                        }
+                        $section->img = $filename;
                     }
+                    $section->save();
                 }
-
             }
         }
+        $post->save();
+
 
         // Thêm section
-        if (isset($data['tab'])) {
-            foreach($data['tab'] as $key => $tab){
-                $section = new Section();
-                $section->post_id = $post->id;
-                $section->stt = $data['stt'][$key];
-                $section->tab = $tab;
-                $section->heading = $data['heading'][$key];
-                $section->content = $data['content'][$key];
-                $section->status = 1;
-                $section->save();
-
-                if($request->hasFile('img_ss'.$key.'')){
-                    foreach ($request->file('img_ss'.$key.'') as $file) {
-                    if(isset($file)){
-                        $Images = new Images();
-                        $Images->section_id = $section->id;
-                        // $filename = saveImage($file); // Gọi hàm saveImage từ helper
-                        $filename = $this->saveImage($file);
-                        $Images->img = $filename;
-                        $Images->name = $filename;
-                        $Images->save();
-                        }
-                    }
-                }
-
-            }
-        }
-
-        $post->save();
+        // if (isset($data['heading'])) {
+        //     foreach($data['heading'] as $key => $heading){
+        //         $section = new Section();
+        //         $section->post_id = $post->id;
+        //         $section->heading = $heading;
+        //         $section->content = $data['content_ss'][$key];
+        //         // thêm ảnh
+        //         $imgFiles = $request->file('image_ss');
+        //         if (isset($imgFiles[$key]) && $imgFiles[$key]->isValid()) {
+        //             $file = $imgFiles[$key];
+        //             $filename = $this->saveImage($file);
+        //             $section->img = $filename;
+        //         }
+        //         $section->save();
+        //     }
+        // }
         
         return redirect()->back()->with('Success','Success');
     }
@@ -362,7 +239,15 @@ class PageController extends Controller
             $Images->delete();
         }
 
+        foreach($Post->Section as $val){
+            $Section = Section::find($val['id']);
+            if(File::exists('data/images/'.$val->img)) { File::delete('data/images/'.$val->img);} // xóa ảnh cũ
+            $Section->delete();
+        }
+
         $Post->delete();
         return redirect()->back()->with('Success','Success');
     }
+
+
 }

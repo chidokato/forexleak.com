@@ -33,9 +33,21 @@
 .main-content-detail h4{ font-size:1.3rem }
 .main-content-detail img{ max-width:100% !important; margin-bottom:1rem }
 
-.thumb-news img {
+.img250 {
     height: 250px;
     object-fit: cover;
+}
+.img200{
+    height: 130px;
+    width: 180px;
+    object-fit: cover;
+}
+.flex-1{
+    flex: 1;
+}
+.flex-column{
+    display: flex;
+    justify-content: space-between;
 }
 
 .text-truncate-set-1 {

@@ -39,178 +39,31 @@
                 </div>
                 <div class="card-body">
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Tên dự án</label>
+                        <label class="col-sm-2 col-form-label">Tiêu đề</label>
                         <div class="col-sm-10">
-                            <input name="name" placeholder="Tên dự án" type="text" class="form-control">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Giá bán</label>
-                        <div class="col-sm-10">
-                            <div class="input-group">
-                                <div class="input-group-append">
-                                    <span class="input-group-text" id="basic-addon2">đ</span>
-                                </div>
-                                <input type="text" name="price" class="form-control price-input" placeholder="Từ (mặc định)">
-                                <input type="text" name="price_max" class="form-control price-input" placeholder="Đến">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Diện tích</label>
-                        <div class="col-sm-10">
-                            <div class="input-group">
-                                <div class="input-group-append">
-                                    <span class="input-group-text" id="basic-addon2">m2</span>
-                                </div>
-                                <input type="text" name="acreage" class="form-control" placeholder="Từ (mặc định)">
-                                <input type="text" name="acreage_max" class="form-control" placeholder="Đến">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Phòng ngủ</label>
-                        <div class="col-sm-10">
-                            <div class="input-group">
-                                <div class="input-group-append">
-                                    <span class="input-group-text" id="basic-addon2">PN</span>
-                                </div>
-                                <input type="text" name="bedroom" class="form-control" placeholder="Từ (mặc định)">
-                                <input type="text" name="bedroom_max" class="form-control" placeholder="Đến">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Phòng vệ sinh</label>
-                        <div class="col-sm-10">
-                            <div class="input-group">
-                                <div class="input-group-append">
-                                    <span class="input-group-text" id="basic-addon2">WC</span>
-                                </div>
-                                <input type="text" name="wc" class="form-control" placeholder="Từ (mặc định)">
-                                <input type="text" name="wc_max" class="form-control" placeholder="Đến">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Tổng số căn</label>
-                        <div class="col-sm-10">
-                            <div class="input-group">
-                                <div class="input-group-append">
-                                    <span class="input-group-text" id="basic-addon2">Căn</span>
-                                </div> 
-                                <input type="text" name="total_product" class="form-control">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group row">
-                        <label class="col-sm-2">Tùy chọn khác</label>
-                        <div class="col-sm-10">
-                            <div class="form-group">
-                                <div class="col-auto my-1">
-                                    <div class="custom-control custom-checkbox mr-sm-2">
-                                        <input name="monopoly" type="checkbox" class="custom-control-input" id="customControlAutosizing1">
-                                        <label class="custom-control-label" for="customControlAutosizing1">Độc quyền</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-auto my-1">
-                                    <div class="custom-control custom-checkbox mr-sm-2">
-                                        <input name="for_sale" type="checkbox" class="custom-control-input" id="customControlAutosizing2">
-                                        <label class="custom-control-label" for="customControlAutosizing2">Đang mở bán</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-auto my-1">
-                                    <div class="custom-control custom-checkbox mr-sm-2">
-                                        <input name="new_product" type="checkbox" class="custom-control-input" id="customControlAutosizing3">
-                                        <label class="custom-control-label" for="customControlAutosizing3">Mới ra mắt</label>
-                                    </div>
-                                </div>
-                            </div>
-
+                            <input name="name" placeholder="Tiêu đề" type="text" class="form-control">
                         </div>
                     </div>
                     
                 </div>
             </div>
         </div>
-        
-        <div class="linkneo" id="section3">
+
+        <div class="linkneo section" >
             <div class="card shadow mb-4" >
                 <span class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Hình ảnh</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Nội dung</h6>
                 </span>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <div style="display: flex;">
-                                <span class="file-upload">
-                                    <span class="file-upload-content" onclick="$('.file-upload-input').trigger( 'click' )">
-                                        <img class="file-upload-image" src="data/no_image.jpg" />
-                                    </span>
-                                    <span class="image-upload-wrap">
-                                        <input name="img" class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
-                                    </span>
-                                </span>
-                                <span>
-                                    <span class="image-preview" id="imagePreview"></span>
-                                    <span class="file-input-wrapper">
-                                        <input type="file" name="imgdetail[]" multiple class="file-input" id="imgInput">
-                                        <img src="admin_asset/img/add-img.png" alt="Upload Image" class="custom-file-input1" id="customFileInput">
-                                    </span>
-                                </span>
-                            </div>
+                            <textarea rows="" name="content" class="form-control editor"></textarea>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- <div class="linkneo section" >
-            <button class="btn btn-danger remove-section" type="button">Xóa Section</button>
-            <div class="card shadow mb-4" >
-                <span class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Section mới</h6>
-                </span>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-1">
-                            <div class="form-group">
-                                <label class="">STT</label>
-                                <input name="stt[]" placeholder="..." type="text" class="form-control">
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label class="">Tab</label>
-                                <input name="tab[]" placeholder="..." type="text" class="form-control">
-                            </div>
-                        </div>
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label class="">Heading</label>
-                                <input name="heading[]" placeholder="..." type="text" class="form-control">
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label class="">Hình ảnh</label>
-                                <input multiple name="img_ss[]" placeholder="..." type="file" class="form-control">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <textarea rows="" name="content[]" class="form-control editor"></textarea>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
+        
         <div id="sectionContainer"></div>
 
         <button id="addSectionButton" class="btn-success btn" type="button">Thêm Section</button>
@@ -235,19 +88,44 @@
                             <input name="description" placeholder="..." type="text" class="form-control">
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Hiển thị</label>
-                        <div class="col-sm-10">
-                            asdasd ádasd
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
        
     </div>
     <div class="col-xl-3 col-lg-3" >
-        <div class="card shadow mb-4" style="position: sticky; top: 60px;">
+        <div class="linkneo">
+            <div class="card shadow mb-4" >
+                <span class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Hình ảnh</h6>
+                </span>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div style="display: flex;">
+                                <span class="file-upload">
+                                    <span class="file-upload-content" onclick="$('.file-upload-input').trigger( 'click' )">
+                                        <img class="file-upload-image" src="data/no_image.jpg" />
+                                    </span>
+                                    <span class="image-upload-wrap">
+                                        <input name="img" class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+                                    </span>
+                                </span>
+                                <!-- <span>
+                                    <span class="image-preview" id="imagePreview"></span>
+                                    <span class="file-input-wrapper">
+                                        <input type="file" name="imgdetail[]" multiple class="file-input" id="imgInput">
+                                        <img src="admin_asset/img/add-img.png" alt="Upload Image" class="custom-file-input1" id="customFileInput">
+                                    </span>
+                                </span> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="card shadow mb-4" style="position: sticky; top: 60px;">
             <span class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary">Menu</h6>
             </span>
@@ -264,7 +142,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 

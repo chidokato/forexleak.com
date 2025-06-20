@@ -35,8 +35,8 @@
                         @foreach($posts as $val)
                         <div class="col-md-4">
                             <div class="hm2-blog-card bg-white deep-shadow">
-                                <div class="feature-img rounded-top overflow-hidden thumb-news">
-                                    <a href="{{$val->category->slug}}/{{$val->slug}}"><img src="data/images/{{$val->img}}" alt="feature" class="img-fluid"></a>
+                                <div class="feature-img rounded-top overflow-hidden">
+                                    <a href="{{$val->category->slug}}/{{$val->slug}}"><img src="data/images/{{$val->img}}" alt="feature" class="img-fluid img250"></a>
                                 </div>
                                 <div class="hm2-blog-card-content position-relative">
                                     <a href="{{$val->category->slug}}" class="tag-btn rounded-pill position-absolute">{{$val->category->name}}</a>

@@ -21,16 +21,16 @@
     <!-- <hr class="sidebar-divider"> -->
     <!-- <div class="sidebar-heading">Interface</div> -->
     <li class="nav-item">
-        <a class="nav-link" href="{{route('category.index')}}"><i class="fas fa-fw fa-chart-area"></i><span>Category</span></a>
+        <a class="nav-link" href="{{route('category.index')}}"><i class="fas fa-fw fa-chart-area"></i><span>Danh mục</span></a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{{route('post.index')}}"><i class="fas fa-fw fa-chart-area"></i><span>Bài viết</span></a>
     </li>
 
     
-    <!-- <li class="nav-item">
+    <li class="nav-item">
         <a class="nav-link" href="{{route('page.index')}}"><i class="fas fa-fw fa-chart-area"></i><span>Trang</span></a>
-    </li> -->
+    </li>
     
    
     <li class="nav-item">

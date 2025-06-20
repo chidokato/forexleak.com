@@ -182,7 +182,35 @@
     <script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@ckeditor/ckeditor5-alignment@42.0.1/+esm" type="text/javascript"></script>
     <script>
-        document.querySelectorAll('.editor').forEach((editorElement) => {
+        function initEditor() {
+            document.querySelectorAll('.editor').forEach((editorElement) => {
+                ClassicEditor
+                    .create(editorElement, {
+                        alignment: {
+                            options: [ 'left', 'right' ]
+                        },
+                        ckfinder: {
+                            uploadUrl: '{{ route("upload") }}?_token={{ csrf_token() }}'
+                        },
+                        toolbar: [
+                            'undo', 'redo', 'imageUpload', '|', 
+                            'bold', 'italic', 'heading', 'bulletedList', 'numberedList', 
+                            'link', 'insertTable', 'blockQuote', 'removeFormat', 'alignment',
+                        ],
+                    })
+                    .catch(error => {
+                        console.error('CKEditor error:', error);
+                    });
+            });
+        }
+
+        function initEditorInForm() {
+            const editorElement = document.querySelector('#form_section .editor');
+            if (!editorElement) {
+                console.warn('Không tìm thấy editor trong #form_section');
+                return;
+            }
+
             ClassicEditor
                 .create(editorElement, {
                     alignment: {
@@ -192,18 +220,26 @@
                         uploadUrl: '{{ route("upload") }}?_token={{ csrf_token() }}'
                     },
                     toolbar: [
-                        'undo', 'redo', 'imageUpload',  '|', 
+                        'undo', 'redo', 'imageUpload', '|', 
                         'bold', 'italic', 'heading', 'bulletedList', 'numberedList', 
                         'link', 'insertTable', 'blockQuote', 'removeFormat', 'alignment',
                     ],
-                    
-                    
+                })
+                .then(editor => {
+                    window.contentEditor = editor; // GÁN BIẾN GLOBAL ĐỂ BẤM SAVE
                 })
                 .catch(error => {
-                    console.error(error);
+                    console.error('CKEditor error:', error);
                 });
+        }
+
+
+        // Gọi 1 lần khi trang load (nếu có editor sẵn)
+        document.addEventListener('DOMContentLoaded', function() {
+            initEditor();
         });
     </script>
+
 
     <!-- ckeditor.com/4.24.0 -->
     <!-- <script src="https://cdn.ckeditor.com/4.24.0-lts/standard/ckeditor.js"></script>

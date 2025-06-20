@@ -66,7 +66,6 @@ Route::group(['prefix'=>'ajax'],function(){
 
 
 
-
 Route::middleware(['auth'])->group(function () {
     Route::prefix('admin')->group(function () {
         // main
@@ -81,6 +80,11 @@ Route::middleware(['auth'])->group(function () {
         Route::get('option/double/{id}', [OptionController::class, 'double']);
 
         Route::resource('page',PageController::class);
+
+        
+
+
+
         Route::resource('post',PostController::class);
         // Route::get('post/post_up/{id}', [PostController::class, 'post_up'])->name('post_up');
 
@@ -94,12 +98,14 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('users',UserController::class);
 
         Route::group(['prefix'=>'section'],function(){
-            Route::get('index/{pid}', [SectionController::class, 'index']);
+            Route::get('list/{id}', [SectionController::class, 'index']);
+            Route::get('add/{id}', [SectionController::class, 'AddSection'])->name('Add.Section');
+            Route::get('edit/{id}', [SectionController::class, 'editsection']);
+            Route::post('save/{id}', [SectionController::class, 'updateSection'])->name('section.update');
+            Route::get('dell/{id}', [SectionController::class, 'DellSection'])->name('section.dell');
         });
 
-        Route::get('get-section', function () {
-            return view('admin.page.add_section')->render();
-        });
+        
     });
 });
 

@@ -121,7 +121,7 @@
                             @if($key==0)
                             <div class="blog-card bg-white deep-shadow rounded">
                                 <div class="feature-thumb rounded-2 overflow-hidden position-relative">
-                                    <a href="{{$val->category->slug}}/{{$val->slug}}"><img src="assets/img/blog-1.jpg" alt="feature" class="img-fluid"></a>
+                                    <a href="{{$val->category->slug}}/{{$val->slug}}"><img src="data/images/{{$val->img}}" alt="{{$val->name}}" class="img-fluid"></a>
                                     <span class="position-absolute category-btn">{{$val->category->name}}</span>
                                 </div>
                                 <div class="blog-content-wrapper mt-4">
@@ -147,16 +147,17 @@
                             @endif
                             @endforeach
                         </div>
-                        <div class="col-xl-6 col-lg-10">
-                            <div class="row g-4">
+                        <div class="col-xl-6 col-lg-10 flex-column">
+                            
                                 @foreach($posts as $key => $val)
+                                <div class="row g-4">
                                 <div class="col-xl-12">
                                     <div class="blog-card d-flex align-items-center bg-white deep-shadow p-25 rounded-2">
                                         <div class="feature-thumb position-relative">
-                                            <a href="{{$val->category->slug}}/{{$val->slug}}"><img src="assets/img/blog-2.jpg" alt="feature" class="img-fluid rounded-left"></a>
+                                            <a href="{{$val->category->slug}}/{{$val->slug}}"><img src="data/images/{{$val->img}}" alt="{{$val->name}}" class="img-fluid rounded-left img200"></a>
                                             <span class="position-absolute category-btn">{{$val->category->name}}</span>
                                         </div>
-                                        <div class="blog-content ms-0 ms-sm-4 mt-3 mt-sm-0">
+                                        <div class="blog-content ms-0 ms-sm-4 mt-3 mt-sm-0 flex-1">
                                             <a href="{{$val->category->slug}}/{{$val->slug}}">
                                                 <h4 class="text-truncate-set text-truncate-set-2">{{$val->name}}</h4>
                                             </a>
@@ -175,8 +176,9 @@
                                         </div>
                                     </div>
                                 </div>
+                                </div>
                                 @endforeach
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -267,13 +269,13 @@
             <div class="swiper-wrapper">
                 @foreach($posts as $val)
                 <div class="swiper-slide hm2-blog-card bg-white">
-                    <div class="feature-img rounded-top overflow-hidden thumb-news">
-                        <a href="{{$val->category->slug}}/{{$val->slug}}"><img src="data/images/{{$val->img}}" alt="feature" class="img-fluid"></a>
+                    <div class="feature-img rounded-top overflow-hidden">
+                        <a href="{{$val->category->slug}}/{{$val->slug}}"><img src="data/images/{{$val->img}}" alt="feature" class="img-fluid img250"></a>
                     </div>
                     <div class="hm2-blog-card-content position-relative">
                         <a href="{{$val->category->slug}}" class="tag-btn rounded-pill position-absolute">{{$val->category->name}}</a>
                         <a href="{{$val->category->slug}}/{{$val->slug}}">
-                            <h3 class="h5 mb-3 text-truncate-set text-truncate-set-2">{{$val->name}}</h3>
+                            <h3 class="h5 mb-3 text-truncate-set text-truncate-set-1" title="{{$val->name}}">{{$val->name}}</h3>
                         </a>
                         <p class="text-truncate-set text-truncate-set-3">{{$val->detail}}</p>
                         <hr class="spacer mt-20 mb-20">

@@ -13,7 +13,12 @@
 <form class="width100" action="{{ url()->current() }}" method="GET">
     <div class="col-xl-12 col-lg-12 search flex-start">
         <input type="text" value="{{ request()->key ?? '' }}" placeholder="Tìm kiếm..." class="form-control" name="key" onchange="this.form.submit()">
-        
+        <select class="form-control" name="category_id">
+            <option value="">...</option>
+            @foreach($category as $val)
+            <option {{isset(request()->category_id) && request()->category_id== $val->id ? 'selected':''}} value="{{$val->id}}">{{$val->name}}</option>
+            @endforeach
+        </select>
         <button type="submit" class="btn btn-success mr-2">Tìm kiếm</button>
         <a href="{{ url()->current() }}" class="btn btn-warning">
             Reset
