@@ -73,9 +73,44 @@
     object-fit: cover;
 }
 .a1212{
-    padding: 3rem 0rem;
+    padding: 2rem 0rem;
+    position: relative;
 }
+
+.a1212 span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+[data-bs-theme=dark] .host-web-price-item span{
+    color: #000 !important;
+}
+
 .a111{ width:100%; text-align:center; font-size:1.4rem }
 .S234{
     font-size: 1.8rem;
+}
+
+.info-list ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px; /* khoảng cách giữa các cột */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.info-list ul li {
+    flex: 0 0 calc(33.333% - 16px); /* chia 3 cột */
+    text-align: left; /* căn trái nội dung */
+    display: flex;
+    flex-direction: column;
+
+
+}
+.info-list ul li strong{
+    font-size: 110%;
 }
