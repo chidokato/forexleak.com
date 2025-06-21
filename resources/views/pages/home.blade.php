@@ -205,48 +205,9 @@
                 </div>
             </div>
         </div>
-        
-        <div class="host-web-price-item bg-white p-4 pt-30 rounded-3 mt-20 position-relative z-1">
-            <!-- <div class="sale-badge text-center position-absolute z--1">
-                <span class="text-white fw-bold">30% Sale</span>
-            </div> -->
-            <div class="row align-items-center gap-4 gap-xl-0">
-                <div class="col-xl-5">
-                    <div class="d-flex align-items-center flex-wrap flex-sm-nowrap gap-7">
-                        <div class="host-web-op-bg d-inline-block rounded-3 a1212">
-                            <img src="https://www.forexcracked.com/wp-content/uploads/elementor/thumbs/exness-logo-ForexCracked.com_-e1743009751580-r3frzh605c3tcvdh8j7xa9xnw0bxaj65r7gm4iujgg.png" alt="" class="img-fluid">
-                        </div>
-                        <div class="host-web-content">
-                            <h5 class="text-black fs-24 mb-10">Exness</h5>
-                            <p class="mb-0">Exness is a globally trusted forex broker known for ultra-fast execution, low trading costs, and instant 24/7 withdrawals!</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-7">
-                    <div class="row align-items-center">
-                        <div class="col-md-9">
-                            <ul class="host-web-price-list d-flex align-items-center justify-content-between flex-wrap gap-5">
-                                <li class="fs-14 fw-500">Regulation <span class="text-black fw-800">CySEC, FSA-S, FCA</span></li>
-                                <li class="fs-14 fw-500">Operating since <span class="text-black fw-800">2008</span></li>
-                                <li class="fs-14 fw-500">Minimum Deposit <span class="text-black fw-800">$10</span></li>
-                                <li class="fs-14 fw-500">Small Accounts <span class="text-black fw-800">Yes ✅ (Cent)</span></li>
-                                <li class="fs-14 fw-500">Max Leverage <span class="text-black fw-800">1:2000</span></li>
-                                <li class="fs-14 fw-500">Platforms <span class="text-black fw-800">MT4, MT5</span></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="pl-40 mb-3">
-                                <a href="" class="template-btn isb-small-btn isb-gd-bg rounded-4 rounded-pill btn-small a111">Register</a>
-                            </div>
-                            <div class="pl-40">
-                                <a href="" class="template-btn isb-small-btn isb-gd-bg rounded-4 rounded-pill btn-small a111">Review</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
+        @foreach($brokers as $val)
+            @include('pages.iteam.broker')
+        @endforeach
     </div>
 </div>
 <!-- Price -->
