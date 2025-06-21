@@ -60,7 +60,7 @@
                 <div class="col-xl-3">
                     <div class="d-flex align-items-center flex-wrap flex-sm-nowrap gap-7">
                         <div class="host-web-op-bg d-inline-block rounded-3 a1212">
-                            <img src="https://www.forexcracked.com/wp-content/uploads/elementor/thumbs/exness-logo-ForexCracked.com_-e1743009751580-r3frzh605c3tcvdh8j7xa9xnw0bxaj65r7gm4iujgg.png" alt="" class="img-fluid">
+                            <img src="data/images/{{ $val->img }}" alt="" class="img-fluid">
                             <span class="fs-20">{{ $val->heading }}</span>
                         </div>
                         <div class="host-web-content">
