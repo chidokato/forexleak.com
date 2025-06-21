@@ -33,8 +33,8 @@
 .main-content-detail h4{ font-size:1.3rem }
 .main-content-detail img{ max-width:100% !important; margin-bottom:1rem }
 
-.img350 {
-    height: 350px;
+.img320 {
+    height: 320px;
     object-fit: cover;
 }
 .img250 {
