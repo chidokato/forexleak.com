@@ -121,7 +121,7 @@
                             @if($key==0)
                             <div class="blog-card bg-white deep-shadow rounded">
                                 <div class="feature-thumb rounded-2 overflow-hidden position-relative">
-                                    <a href="{{$val->category->slug}}/{{$val->slug}}"><img src="data/images/{{$val->img}}" alt="{{$val->name}}" class="img-fluid"></a>
+                                    <a href="{{$val->category->slug}}/{{$val->slug}}"><img src="data/images/{{$val->img}}" alt="{{$val->name}}" class="img-fluid img350"></a>
                                     <span class="position-absolute category-btn">{{$val->category->name}}</span>
                                 </div>
                                 <div class="blog-content-wrapper mt-4">
