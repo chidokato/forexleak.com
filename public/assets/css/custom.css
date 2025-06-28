@@ -18,7 +18,7 @@
     padding: 25px 15px;
 }
 .nav-wrapper ul li.has-submenu::after {
-    right: -2px;
+    right: 5px;
     color: #fff;
 }
 .nav-menu-4 {
