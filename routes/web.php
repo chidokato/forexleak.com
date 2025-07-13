@@ -38,8 +38,6 @@ Route::post('account/register', [LoginController::class, 'register'])->name('reg
 Route::post('/upload', [UploadController::class, 'upload'])->name('upload');
 
 
-
-
 // ajax
 Route::group(['prefix'=>'ajax'],function(){
     Route::get('change_province/{id}', [AjaxController::class, 'change_province']);
