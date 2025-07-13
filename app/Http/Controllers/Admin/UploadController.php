@@ -14,39 +14,47 @@ use Intervention\Image\Facades\Image;
 class UploadController extends Controller
 {
     public function upload(Request $request)
-    {
-        Log::info('Upload request received.');
+{
+    Log::info('Upload request received.');
 
-        if ($request->hasFile('upload')) {
-            $file = $request->file('upload');
-            $filename = time() . '.' . $file->getClientOriginalExtension();
-            $destinationPath = public_path('/uploads');
+    if ($request->hasFile('upload')) {
+        $file = $request->file('upload');
+        $filename = time() . '.' . $file->getClientOriginalExtension();
+        $destinationPath = public_path('/uploads');
 
-            // Resize the image
-            $image = Image::make($file)->resize(1500, 1500, function ($constraint) {
+        if (!file_exists($destinationPath)) {
+            mkdir($destinationPath, 0755, true);
+        }
+
+        // Resize image (nếu là ảnh)
+        if (in_array($file->getClientOriginalExtension(), ['jpg', 'jpeg', 'png', 'gif', 'webp'])) {
+            $image = \Image::make($file)->resize(1500, 1500, function ($constraint) {
                 $constraint->aspectRatio();
                 $constraint->upsize();
             });
 
-            // Save the resized image
             $image->save($destinationPath . '/' . $filename);
-
-            $url = url('/uploads/' . $filename);
-
-            Log::info('File uploaded successfully.', ['url' => $url]);
-
-            return response()->json([
-                'uploaded' => true,
-                'url' => $url
-            ]);
+        } else {
+            // Nếu không phải ảnh thì lưu file thường
+            $file->move($destinationPath, $filename);
         }
 
-        Log::error('File upload failed.');
+        $url = url('/uploads/' . $filename);
+
+        Log::info('File uploaded successfully.', ['url' => $url]);
+
+        // 👉 TRẢ VỀ CHUẨN CHO CKEDITOR
         return response()->json([
-            'uploaded' => false,
-            'error' => [
-                'message' => 'File upload failed.'
-            ]
+            'url' => $url
         ]);
     }
+
+    Log::error('File upload failed.');
+    return response()->json([
+        'error' => [
+            'message' => 'File upload failed.'
+        ]
+    ], 400);
+}
+
 }
