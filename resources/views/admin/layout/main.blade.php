@@ -179,7 +179,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
 
-    <script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script>
+    <!-- <script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@ckeditor/ckeditor5-alignment@42.0.1/+esm" type="text/javascript"></script>
     <script>
         function initEditor() {
@@ -187,15 +187,16 @@
                 ClassicEditor
                     .create(editorElement, {
                         alignment: {
-                            options: [ 'left', 'right' ]
+                            options: [ 'left', 'center', 'right', 'justify' ] 
                         },
                         ckfinder: {
                             uploadUrl: '{{ route("upload") }}?_token={{ csrf_token() }}'
                         },
                         toolbar: [
-                            'undo', 'redo', 'imageUpload', '|', 
-                            'bold', 'italic', 'heading', 'bulletedList', 'numberedList', 
-                            'link', 'insertTable', 'blockQuote', 'removeFormat', 'alignment',
+                            'undo', 'redo', 'imageUpload', '|',
+                            'bold', 'italic', 'heading', 'bulletedList', 'numberedList',
+                            'link', 'insertTable', 'blockQuote', 'removeFormat', '|',
+                            'alignment', 
                         ],
                     })
                     .catch(error => {
@@ -236,6 +237,14 @@
 
         // Gọi 1 lần khi trang load (nếu có editor sẵn)
         document.addEventListener('DOMContentLoaded', function() {
+            initEditor();
+        });
+    </script> -->
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/super-build/ckeditor.js"></script>
+    <script src="admin_asset/js/customc-keditor.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
             initEditor();
         });
     </script>
