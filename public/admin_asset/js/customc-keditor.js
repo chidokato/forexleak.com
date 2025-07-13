@@ -270,8 +270,8 @@ function initEditorInForm() {
             ]
         })
         .then(editor => {
-            // Nếu cần gắn global: window.contentEditor = editor;
-            editorElement.ckeditorInstance = editor; // Gắn riêng cho từng thẻ
+            window.contentEditor = editor; // thêm dòng này
+            editorElement.ckeditorInstance = editor; 
         })
         .catch(error => {
             console.error('CKEditor init error:', error);

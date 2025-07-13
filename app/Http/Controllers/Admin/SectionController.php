@@ -73,6 +73,8 @@ class SectionController extends Controller
         $section = Section::findOrFail($id);
         $section->heading = $data['heading'];
         $section->content = $data['content_ss'];
+        $section->linkaff = $data['linkaff'];
+        $section->linkreview = $data['linkreview'];
 
         if ($request->hasFile('img_ss')) {
             if(File::exists('data/images/'.$section->img)) { File::delete('data/images/'.$section->img);} // xóa ảnh cũ

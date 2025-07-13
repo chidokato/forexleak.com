@@ -64,12 +64,6 @@
             </div>
         </div>
         
-        <div id="sectionContainer"></div>
-
-        <button id="addSectionButton" class="btn-success btn" type="button">Thêm Section</button>
-
-        <br>
-        <br>
         <div class="linkneo" id="seo">
             <div class="card shadow mb-4" >
                 <span class="card-header py-3 d-flex flex-row align-items-center justify-content-between">

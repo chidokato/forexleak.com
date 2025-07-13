@@ -49,60 +49,16 @@
         <div class="pricing-wrapper position-relative zindex-1">
             <img src="assets/img/shapes/frame.svg" alt="frame" class="position-absolute frame-shape">
             <div class="row g-4 justify-content-center mt-4">
-                
+                @foreach($data->Section as $val)
                 <div class="col-lg-4 col-md-6">
                     <div class="pricing-column overflow-hidden position-relative bg-white rounded-10 deep-shadow">
-                        <h3 class="h5 S234">Starter</h3>
-                        <span class="pricing-label d-block mt-2 mb-4">Indicator Collection Only</span>
-                        <h4 class="h2 mt-2 monthly-price">$39.99<span>/mo</span></h4>
-                        <h4 class="h2 mt-2 yearly-price">$390.99<span>/yr</span></h4>
+                        <!-- <span class="popular-badge position-absolute text-center fw-bold">Most Popular</span> -->
                         <!-- <p class="mt-4">Packed with great features, such as oneclick software installs,24/7 support</p> -->
-                        <ul class="feature-list mt-4">
-                            <li><span class="me-2"><i class="fa-solid fa-times"></i></span>Forex Signals</li>
-                            <li><span class="me-2"><i class="fa-solid fa-times"></i></span>VIP Group</li>
-                            <li><span class="me-2"><i class="fa-solid fa-times"></i></span>Beginer Course</li>
-                            <li><span class="me-2"><i class="fa-solid fa-times"></i></span>cPanel Control Panel</li>
-                            <li><span class="me-2"><i class="fa-solid fa-check"></i></span>Indicator Collection</li>
-                        </ul>
+                        {!! $val->content !!}
                         <a href="#" class="template-btn secondary-btn w-100 text-center mt-40">Purchase Plan</a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="pricing-column overflow-hidden position-relative bg-white rounded-10 deep-shadow">
-                        <h3 class="h5 S234">Starter</h3>
-                        <span class="popular-badge position-absolute text-center fw-bold">Most Popular</span>
-                        <span class="pricing-label d-block mt-2 mb-4">Indicator Collection Only</span>
-                        <h4 class="h2 mt-2 monthly-price">$39.99<span>/mo</span></h4>
-                        <h4 class="h2 mt-2 yearly-price">$390.99<span>/yr</span></h4>
-                        <!-- <p class="mt-4">Packed with great features, such as oneclick software installs,24/7 support</p> -->
-                        <ul class="feature-list mt-4">
-                            <li><span class="me-2"><i class="fa-solid fa-times"></i></span>Forex Signals</li>
-                            <li><span class="me-2"><i class="fa-solid fa-times"></i></span>VIP Group</li>
-                            <li><span class="me-2"><i class="fa-solid fa-times"></i></span>Beginer Course</li>
-                            <li><span class="me-2"><i class="fa-solid fa-times"></i></span>cPanel Control Panel</li>
-                            <li><span class="me-2"><i class="fa-solid fa-check"></i></span>Indicator Collection</li>
-                        </ul>
-                        <a href="#" class="template-btn secondary-btn w-100 text-center mt-40">Purchase Plan</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="pricing-column overflow-hidden position-relative bg-white rounded-10 deep-shadow">
-                        <h3 class="h5 S234">Starter</h3>
-                        <span class="pricing-label d-block mt-2 mb-4">Indicator Collection Only</span>
-                        <h4 class="h2 mt-2 monthly-price">$39.99<span>/mo</span></h4>
-                        <h4 class="h2 mt-2 yearly-price">$390.99<span>/yr</span></h4>
-                        <!-- <p class="mt-4">Packed with great features, such as oneclick software installs,24/7 support</p> -->
-                        <ul class="feature-list mt-4">
-                            <li><span class="me-2"><i class="fa-solid fa-times"></i></span>Forex Signals</li>
-                            <li><span class="me-2"><i class="fa-solid fa-times"></i></span>VIP Group</li>
-                            <li><span class="me-2"><i class="fa-solid fa-times"></i></span>Beginer Course</li>
-                            <li><span class="me-2"><i class="fa-solid fa-times"></i></span>cPanel Control Panel</li>
-                            <li><span class="me-2"><i class="fa-solid fa-check"></i></span>Indicator Collection</li>
-                        </ul>
-                        <a href="#" class="template-btn secondary-btn w-100 text-center mt-40">Purchase Plan</a>
-                    </div>
-                </div>
-
+                @endforeach
                 
             </div>
         </div>
