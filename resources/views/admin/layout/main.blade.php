@@ -19,6 +19,8 @@
     <link href="admin_asset/zoom/zoom.css" rel="stylesheet">
     <!-- select2 multiple css -->
     <link href="admin_asset/select2/css/select2.min.css" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
 
     @yield('css')
 </head>
@@ -66,64 +68,6 @@
     </div>
 
     
-
-
-    <!-- <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
-    <script>
-    var options = {
-        filebrowserImageBrowseUrl: 'laravel-filemanager?type=Images',
-        filebrowserImageUploadUrl: 'laravel-filemanager/upload?type=Images&_token=',
-        filebrowserBrowseUrl: 'laravel-filemanager?type=Files',
-        filebrowserUploadUrl: 'laravel-filemanager/upload?type=Files&_token=',
-        height: 450, 
-        toolbar: [{
-          name: 'document',
-          items: ['Source']
-        },
-        {
-          name: 'clipboard',
-          items: ['Undo', 'Redo']
-        },
-        {
-          name: 'styles',
-          items: ['Format', 'Font', 'FontSize']
-        },
-        {
-          name: 'colors',
-          items: ['TextColor', 'BGColor']
-        },
-        {
-          name: 'align',
-          items: ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock']
-        },
-        {
-          name: 'basicstyles',
-          items: ['Bold', 'Italic', 'Underline', 'Subscript', 'Superscript', 'Strike', 'RemoveFormat']
-        },
-        {
-          name: 'links',
-          items: ['Link', 'Unlink']
-        },
-        {
-          name: 'paragraph',
-          items: ['NumberedList', 'BulletedList', '-', 'Blockquote']
-        },
-        {
-          name: 'insert',
-          items: ['Image', 'Table']
-        },
-        
-        
-      ],
-    };
-    </script>
-    <script>
-        CKEDITOR.replace('ckeditor', options);
-        @for ($i = 1; $i <= 10; $i++)
-            CKEDITOR.replace('ckeditor{{$i}}', options);
-        @endfor
-    </script> -->
-    
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <!-- <script src="admin_asset/jquery/jquery.min.js"></script> -->
     <script src="admin_asset/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -161,7 +105,6 @@
     <script src="admin_asset/select2/js/select2.min.js"></script>
     <script src="admin_asset/select2/js/select2-searchInputPlaceholder.js"></script>
     <script type="text/javascript">
-        // $(document).ready(function() { $('.select2').select2({ placeholder: '...'}); });
         $(document).ready(function() { $('.select2').select2({ searchInputPlaceholder: 'Nhập từ khóa' }); });
     </script>
 
@@ -169,15 +112,13 @@
     <script src="admin_asset/zoom/zoom.js"></script>
     <!-- <script src="admin_asset/js/js.js"></script> -->
     <script src="admin_asset/js/custom.js"></script>
+    
     <!-- validate -->
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js" type="text/javascript"></script>
     <script src="admin_asset/js/validate.js"></script>
 
     <!-- JavaScript -->
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
 
     <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/super-build/ckeditor.js"></script>
     <script src="admin_asset/js/customc-keditor.js"></script>

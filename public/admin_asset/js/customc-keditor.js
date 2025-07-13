@@ -163,7 +163,7 @@ function initEditorInForm() {
             },
 
             ckfinder: {
-                uploadUrl: '{{ route("upload") }}?_token={{ csrf_token() }}'
+                uploadUrl: uploadUrl // dùng biến toàn cục từ Blade
             },
 
             list: {

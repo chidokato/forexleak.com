@@ -79,10 +79,6 @@ Route::middleware(['auth'])->group(function () {
 
         Route::resource('page',PageController::class);
 
-        
-
-
-
         Route::resource('post',PostController::class);
         // Route::get('post/post_up/{id}', [PostController::class, 'post_up'])->name('post_up');
 
