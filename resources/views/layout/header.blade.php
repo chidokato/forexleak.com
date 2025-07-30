@@ -32,7 +32,7 @@
                                 </div>
                             </div>
                             <div class="sh-header-btn ml-40 flex-shrink-0 position-relative d-none d-sm-block">
-                                <a href="signup.html" class="template-btn primary-btn rounded-pill btn-small">Register Now</a>
+                                <a href="signup.html" class="template-btn primary-btn rounded-pill btn-small">JOIN HERE</a>
                             </div>
                             <button class="mobile-menu-toggle d-block d-lg-none border-0 bg-transparent text-white ml-20"><i
                               class="fa-solid fa-bars"></i></button>
