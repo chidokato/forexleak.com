@@ -75,10 +75,9 @@ class HomeController extends Controller
     public function page(Request $request, $slug)
     {
         $data = Post::where('slug', $slug)->firstOrFail();
-        if ($slug=='brokers') {
+        if ($slug=='brokers' || $slug=='signals-vault') {
             return view('pages.brokers', compact('data'));
         }
-
         if ($slug=='premium-indicators') {
             return view('pages.premium-indicators', compact('data'));
         }

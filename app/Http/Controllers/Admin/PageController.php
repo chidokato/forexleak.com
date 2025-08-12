@@ -108,28 +108,7 @@ class PageController extends Controller
         // ---------------------
         $post->save();
 
-        // Thêm section
-        // if (isset($data['heading'])) {
-        //     foreach($data['heading'] as $key => $heading){
-        //         $section = new Section();
-        //         $section->post_id = $post->id;
-        //         $section->heading = $heading;
-        //         $section->content = $data['content_ss'][$key];
-
-        //         // thêm ảnh
-        //         $imgFiles = $request->file('img_ss');
-        //         if (isset($imgFiles[$key]) && $imgFiles[$key]->isValid()) {
-        //             $file = $imgFiles[$key];
-        //             $filename = $this->saveImage($file);
-        //             $section->img = $filename;
-        //         }
-
-        //         $section->save();
-        //     }
-        // }
-
         return redirect('admin/page')->with('Success','Success');
-        // return response()->json(['success' => 'Success']);
     }
 
     /**
@@ -202,25 +181,6 @@ class PageController extends Controller
         }
         $post->save();
 
-
-        // Thêm section
-        // if (isset($data['heading'])) {
-        //     foreach($data['heading'] as $key => $heading){
-        //         $section = new Section();
-        //         $section->post_id = $post->id;
-        //         $section->heading = $heading;
-        //         $section->content = $data['content_ss'][$key];
-        //         // thêm ảnh
-        //         $imgFiles = $request->file('image_ss');
-        //         if (isset($imgFiles[$key]) && $imgFiles[$key]->isValid()) {
-        //             $file = $imgFiles[$key];
-        //             $filename = $this->saveImage($file);
-        //             $section->img = $filename;
-        //         }
-        //         $section->save();
-        //     }
-        // }
-        
         return redirect()->back()->with('Success','Success');
     }
 

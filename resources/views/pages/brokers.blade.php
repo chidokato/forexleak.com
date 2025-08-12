@@ -11,23 +11,6 @@
 
 @section('content')
 
-<!--breadcrumb area start-->
-<!-- <section class="breadcrumb-area bg-primary-gradient">
-    <div class="container">
-        <div class="breadcrumb-content text-center">
-            <h2 class="mb-3">{{$data->name}}</h2>
-            <nav>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{asset('')}}">Home</a></li>
-                    <li class="breadcrumb-item active">{{$data->name}}</li>
-                </ol>
-            </nav>
-        </div>
-    </div>
-</section> -->
-<!--breadcrumb area end-->
-
-
 <!-- Price -->
 <div class="host-web-price-area host-fs-bg ptb-120">
     <div class="container">
