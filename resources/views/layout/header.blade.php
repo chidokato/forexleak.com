@@ -31,8 +31,11 @@
                                     </form>
                                 </div>
                             </div>
-                            <div class="sh-header-btn ml-40 flex-shrink-0 position-relative d-none d-sm-block">
-                                <a href="signup.html" class="template-btn primary-btn rounded-pill btn-small">JOIN HERE</a>
+                            <div class="sh-header-btn ml-40 flex-shrink-0 position-relative d-none d-sm-block footer-widget">
+                                <ul class="social-nav">
+                                    <li><a href="#" class="rounded-circle overflow-hidden position-relative d-flex align-items-center justify-content-center text-white"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#" class="rounded-circle overflow-hidden position-relative d-flex align-items-center justify-content-center text-white"><i class="fab fa-twitter"></i></a></li>
+                                </ul>
                             </div>
                             <button class="mobile-menu-toggle d-block d-lg-none border-0 bg-transparent text-white ml-20"><i
                               class="fa-solid fa-bars"></i></button>
