@@ -36,8 +36,8 @@
                     </li>
                 </ul>
                 <div class="d-flex align-items-center justify-content-center gap-3 flex-wrap pt-40">
-                    <a href="pricing.html" class="template-btn host-fs-btn-bg fs-hover-style fw-bold text-black rounded-pill">Enter Now!</a>
-                    <a href="service.html" class="template-btn outline-btn fs-outline-hover-style text-warning host-fs-border-clr rounded-pill">Contact !</a>
+                    <a href="" class="template-btn host-fs-btn-bg fs-hover-style fw-bold text-black rounded-pill">Enter Now!</a>
+                    <a href="" class="template-btn outline-btn fs-outline-hover-style text-warning host-fs-border-clr rounded-pill">Contact !</a>
                 </div>
             </div>
         </div>
