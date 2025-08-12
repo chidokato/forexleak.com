@@ -118,3 +118,8 @@
 .info-list ul li strong{
     font-size: 110%;
 }
+
+.pricing-tab-section {
+    margin-top: -60px;
+    padding-top: 120px;
+}
