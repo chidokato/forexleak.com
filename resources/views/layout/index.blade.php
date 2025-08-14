@@ -49,6 +49,8 @@
     <link rel="stylesheet" href="assets/css/custom.css" />
 
     @yield('css')
+
+    {!! $setting->header !!}
     
 </head>
 
@@ -88,6 +90,8 @@
     </div>
     @endif
 
+    {!! $setting->footer !!}
+    
 </body>
 
 </html>
