@@ -22,10 +22,10 @@
                             <path d="M4.14155 16.6077L18.1894 0.746819" stroke="#38EEB0" stroke-width="1.79988" />
                             <path d="M8.33836 17.5457L15.8265 9.18274" stroke="#38EEB0" stroke-width="1.79988" />
                         </svg>
-                        Brokers
+                        {!! $data->name !!}
                     </h6>
                     <h2 class="host-web-title text-white fs-48 fw-800 mb-30">
-                        Looking For Good  <br><span class="host-web-gd-text">Forex Broker?</span>
+                        Looking For Good  <br><span class="host-web-gd-text">{!! $data->name !!}?</span>
                     </h2>
                     <div class="">
                         {!! $data->content !!}
