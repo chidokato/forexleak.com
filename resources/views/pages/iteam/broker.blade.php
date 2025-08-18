@@ -23,10 +23,10 @@
                 <div class="col-md-3">
                     <div class="mb-2">
                         <!-- <a href="" class="template-btn isb-small-btn isb-gd-bg rounded-4 rounded-pill btn-small a111">Join Free</a> -->
-                        <a href="" class="template-btn isb-small-btn isb-gd-bg rounded-4 rounded-pill btn-small a111">Register</a>
+                        <a href="{{ $val->linkaff }}" class="template-btn isb-small-btn isb-gd-bg rounded-4 rounded-pill btn-small a111">Register</a>
                     </div>
                     <div class="">
-                        <a href="" class="template-btn outline-btn rounded-4 rounded-pill btn-small a111">Review</a>
+                        <a href="{{ $val->linkreview }}" class="template-btn outline-btn rounded-4 rounded-pill btn-small a111">Review</a>
                     </div>
                 </div>
             </div>
