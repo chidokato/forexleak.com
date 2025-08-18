@@ -58,8 +58,9 @@
                             </div>
                             <h1 class="bd-blog-title mt-4 mb-2">{{$post->name}}</h1>
 
-                            <div class="main-content-detail">.
-                                <p>{!! $post->detail !!}</p>
+                            <div class="main-content-detail">
+                                <p><i>{!! $post->detail !!}</i></p>
+                                
                                 {!! $post->content !!}
                             </div>
 
