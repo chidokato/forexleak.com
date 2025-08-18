@@ -15,7 +15,7 @@
 <section class="breadcrumb-area bg-primary-gradient">
     <div class="container">
         <div class="breadcrumb-content text-center">
-            <h2 class="mb-3">{{$post->name}}</h2>
+            <!-- <h2 class="mb-3">{{$post->name}}</h2> -->
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
@@ -56,11 +56,11 @@
                                     <h6 class="mb-0 mt-1">{{date_format($post->updated_at,"d/m/Y")}}</h6>
                                 </div>
                             </div>
-                            <h1 class="bd-blog-title mt-4 mb-2">{{$post->name}}</h1>
+                            <h1 class="bd-blog-title mt-4 mb-3">{{$post->name}}</h1>
 
                             <div class="main-content-detail">
                                 <p><i>{!! $post->detail !!}</i></p>
-                                
+
                                 {!! $post->content !!}
                             </div>
 
