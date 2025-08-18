@@ -131,5 +131,8 @@
 @media (max-width: 414px){
     .breadcrumb-content h2{ font-size: 1rem; }
     .breadcrumb-area nav ol li{ font-size:.8rem }
+    .breadcrumb-item.active{ width:70%;     overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
 
 }
