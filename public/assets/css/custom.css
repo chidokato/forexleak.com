@@ -31,7 +31,7 @@
 .main-content-detail h2{ font-size:2rem }
 .main-content-detail h3{ font-size:1.6rem }
 .main-content-detail h4{ font-size:1.3rem }
-.main-content-detail img{ max-width:100% !important; margin-bottom:1rem }
+.main-content-detail img{ max-width:100% !important; margin-bottom:1rem; height:auto; }
 
 .img320 {
     height: 320px;
