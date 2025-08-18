@@ -56,7 +56,7 @@
                                     <h6 class="mb-0 mt-1">{{date_format($post->updated_at,"d/m/Y")}}</h6>
                                 </div>
                             </div>
-                            <h1 class="bd-blog-title mt-5 mb-4">{{$post->name}}</h1>
+                            <h1 class="bd-blog-title mt-4 mb-2">{{$post->name}}</h1>
 
                             <div class="main-content-detail">.
                                 <p>{!! $post->detail !!}</p>
