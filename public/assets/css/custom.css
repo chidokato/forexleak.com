@@ -129,10 +129,12 @@
 
 
 @media (max-width: 414px){
-    .breadcrumb-content h2{ font-size: 1rem; }
+    .breadcrumb-content h2{ font-size: 1.2rem; }
     .breadcrumb-area nav ol li{ font-size:.8rem }
     .breadcrumb-item.active{ width:70%;     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap; }
+    .bd-content-wrapper{     padding: 10px; }
+    .bd-content-wrapper h1{font-size: 1.3rem}
 
 }
