@@ -126,3 +126,10 @@
 .footer-widget{ margin-bottom:0 }
 
 .with-100{ width:100% !important }
+
+
+@media (max-width: 414px){
+    .breadcrumb-content h2{ font-size: 1rem; }
+    .breadcrumb-area nav ol li{ font-size:.8rem }
+
+}
