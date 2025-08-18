@@ -1,5 +1,3 @@
-
-
         <!--header area start-->
         <header class="header-style-4">
             <div class="container">
@@ -15,7 +13,6 @@
                                 <ul>
                                     @include('partials.menu-megamenu', ['menus' => $menu])
                                 </ul>
-
                             </nav>
                         </div>
                     </div>
@@ -50,22 +47,17 @@
         <!--mobile menu start-->
         <div class="mobile-menu position-fixed bg-white deep-shadow">
             <button class="close-menu position-absolute"><i class="fa-solid fa-xmark"></i></button>
-            <a href="index-2.html" class="logo-wrapper"><img src="assets/img/logo.png" alt="logo" class="logo logo-black"></a>
-            <a href="index-2.html" class="logo-wrapper"><img src="assets/img/logo-white.png" alt="logo" class="logo logo-white"></a>
+            <a href="{{asset('')}}" class="logo-wrapper"><img src="data/images/{{$setting->img}}" alt="logo" class="logo logo-black"></a>
+            <a href="{{asset('')}}" class="logo-wrapper"><img src="data/images/{{$setting->img}}" alt="logo" class="logo logo-white"></a>
             <nav class="mobile-menu-wrapper mt-40">
                 <ul>
-                    <li class="has-submenu"><a href="javascript:void(0)">Home</a>
-                        <ul>
-                            <li><a href="index-2.html">Web Hosting</a></li>
-                            <li><a href="index-2.html">Web Hosting</a></li>
-                            <li><a href="index-2.html">Web Hosting</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="about.html">About</a></li>
+                    @include('partials.menu-megamenu-mobi', ['menus' => $menu])
+
+                    
                 </ul>
             </nav>
 
-            <div class="contact-info mt-60">
+            <!-- <div class="contact-info mt-60">
                 <h4 class="mb-20">Contact Info</h4>
                 <p>Chicago 12, Melborne City, USA</p>
                 <p>+88 01682648101</p>
@@ -76,6 +68,6 @@
                     <a href="#"><i class="fab fa-instagram"></i></a>
                     <a href="#"><i class="fab fa-linkedin"></i></a>
                 </div>
-            </div>
+            </div> -->
         </div>
         <!--mobile menu end-->

@@ -57,13 +57,10 @@
 <body>
     <div class="body-overlay"></div>
     <div class="main-wrapper">
-
     @include('layout.header')
     @yield('content')
     @include('layout.footer')
-    
     </div>
-
     <!-- JS ============================ -->
     <!--build:js-->
     <script src="assets/js/vendors/jquery.min.js"></script>
