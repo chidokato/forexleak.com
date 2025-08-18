@@ -36,7 +36,7 @@
                 <div class="hm-blog-grid-left bg-white deep-shadow rounded-2">
                     <div class="hm2-blog-card">
                         <div class="feature-img rounded-top overflow-hidden">
-                            <img src="data/images/{{$post->img}}" alt="feature" class="img-fluid">
+                            <img src="data/images/{{$post->img}}" alt="feature" class="img-fluid with-100">
                         </div>
                         <div class="bd-content-wrapper">
                             <div class="bd-blog-meta d-flex align-items-center flex-wrap">
@@ -77,7 +77,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <!-- <div class="col-md-6">
                                         <div class="bd-blog-tags">
                                             <h6>Related Tags.</h6>
                                             <div class="tags-wrapper mt-3">
@@ -86,17 +86,17 @@
                                                 <a href="#" class="mb-3">Security</a>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
-                            <div class="bd-author-info mt-60 rounded d-block d-sm-flex align-items-center">
+                            <!-- <div class="bd-author-info mt-60 rounded d-block d-sm-flex align-items-center">
                                 <img src="assets/img/bd-author-1.png" alt="author" class="img-fluid flex-shrink-0 rounded-circle">
                                 <div class="bd-author-info-right mt-3 mt-sm-0 ms-sm-3">
                                     <h6>Darrell Steward</h6>
                                     <p>Holisticly generate customized value and next-generation convergence. Assertively leverage existing state of the art intellectual capital through market positioning innovation.</p>
                                 </div>
-                            </div>
-                            <div class="bd-related-posts mt-60">
+                            </div> -->
+                            <!-- <div class="bd-related-posts mt-60">
                                 <div class="row g-4">
                                     <div class="col-md-6">
                                         <div class="bd-rl-post-wrapper d-flex align-items-center">
@@ -121,7 +121,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
                         </div>
                     </div>
