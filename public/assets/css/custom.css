@@ -130,6 +130,8 @@
 
 .bd-blog-title{ font-size:1.6rem }
 
+.heading123{ color:#fff; font-size:1.4rem }
+
 @media (max-width: 414px){
     .breadcrumb-content h2{ font-size: 1.2rem; }
     .breadcrumb-area nav ol li{ font-size:.8rem }
