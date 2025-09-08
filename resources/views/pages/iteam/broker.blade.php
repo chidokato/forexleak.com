@@ -6,7 +6,7 @@
     <div class="row align-items-center gap-4 gap-xl-0">
         <div class="col-xl-3">
             <div class="d-flex align-items-center flex-wrap flex-sm-nowrap gap-7">
-                <div class="host-web-op-bg d-inline-block rounded-3 a1212">
+                <div class="host-web-op-bg d-inline-block rounded-3">
                     <img src="data/images/{{ $val->img }}" alt="" class="img-fluid">
                 </div>
                 <div class="host-web-content">
