@@ -43,7 +43,7 @@ class HomeController extends Controller
     {
         $slider = Slider::orderBy('id', 'desc')->get();
         $product = Post::where('hot', 'true')->where('sort_by', 'Product')->orderBy('id', 'desc')->take(8)->get();
-        $posts = Post::where('sort_by', 'News')->orderBy('id', 'desc')->take(5)->get();
+        $posts = Post::where('sort_by', 'News')->orderBy('id', 'desc')->take(4)->get();
         $brokers = Section::where('post_id', 730)->orderBy('id', 'desc')->take(5)->get();
 
         return view('pages.home', compact(
