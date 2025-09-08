@@ -1,3 +1,6 @@
+
+
+
 <div class="host-web-price-item bg-white p-3 rounded-3 mt-20 position-relative z-1">
     <!-- <div class="sale-badge text-center position-absolute z--1">
         <span class="text-white fw-bold">30% Sale</span>
