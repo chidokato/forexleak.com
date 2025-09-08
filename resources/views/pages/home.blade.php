@@ -182,6 +182,7 @@
                         <div class="col-xl-6 col-lg-10 flex-column">
                             
                                 @foreach($posts as $key => $val)
+                                @if($key > 0)
                                 <div class="row g-4">
                                 <div class="col-xl-12">
                                     <div class="blog-card d-flex align-items-center bg-white deep-shadow p-25 rounded-2">
@@ -209,6 +210,7 @@
                                     </div>
                                 </div>
                                 </div>
+                                @endif
                                 @endforeach
                             
                         </div>
