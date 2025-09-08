@@ -7,7 +7,7 @@
             <div class="d-flex align-items-center flex-wrap flex-sm-nowrap gap-7">
                 <div class="host-web-op-bg d-inline-block rounded-3 a1212">
                     <img src="data/images/{{ $val->img }}" alt="" class="img-fluid">
-                    <span class="fs-20">{{ $val->heading }}</span>
+                    <!-- <span class="fs-20">{{ $val->heading }}</span> -->
                 </div>
                 <div class="host-web-content">
                     <!-- <h5 class="text-black fs-24 mb-10">{{ $val->heading }}</h5> -->
@@ -18,6 +18,7 @@
         <div class="col-xl-9">
             <div class="row align-items-center">
                 <div class="col-md-9 info-list">
+                    <div class="heading">{{ $val->heading }}</div>
                     {!! $val->content !!}
                 </div>
                 <div class="col-md-3">
