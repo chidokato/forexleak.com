@@ -77,7 +77,7 @@
     object-fit: cover;
 }
 .a1212{
-    padding: 2rem 1rem;
+    padding: 0 0 2rem;
     position: relative;
 }
 
@@ -88,6 +88,7 @@
     right: 0;
     text-align: center;
 }
+.a1212 img{ border-radius: 20px 20px 0 0; }
 
 [data-bs-theme=dark] .host-web-price-item span{
     color: #000 !important;
