@@ -33,7 +33,7 @@
                 <div class="hm-blog-grid-left">
                     <div class="row g-4">
                         @foreach($posts as $val)
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="hm2-blog-card bg-white deep-shadow">
                                 <div class="feature-img rounded-top overflow-hidden">
                                     <a href="{{$val->category->slug}}/{{$val->slug}}"><img src="data/images/{{$val->img}}" alt="feature" class="img-fluid img250"></a>
@@ -43,7 +43,7 @@
                                     <a href="{{$val->category->slug}}/{{$val->slug}}">
                                         <h3 class="h5 mb-3 text-truncate-set text-truncate-set-2">{{$val->name}}</h3>
                                     </a>
-                                    <p class="text-truncate-set text-truncate-set-3">{{$val->detail}}</p>
+                                    <p class="text-truncate-set text-truncate-set-2">{{$val->detail}}</p>
                                     <hr class="spacer mt-20 mb-20">
                                     <div class="bog-author d-flex align-items-center justify-content-between">
                                         <div class="d-inline-flex align-items-center">
@@ -58,6 +58,7 @@
                         @endforeach
                         
                     </div>
+                    {{ $posts->appends(request()->all())->links() }}
                     <!-- <div class="template-pagination mt-60">
                         <ul class="d-flex align-items-center">
                             <li><a href="#" class="active">01</a></li>

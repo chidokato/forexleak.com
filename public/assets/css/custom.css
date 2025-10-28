@@ -15,7 +15,7 @@
     z-index: 99;
 }
 .nav-wrapper ul li a{
-    padding: 25px 15px;
+    padding: 25px 25px;
 }
 .nav-wrapper ul li.has-submenu::after {
     right: 5px;
@@ -35,16 +35,20 @@
 
 .img320 {
     height: 320px;
-    object-fit: cover;
+    object-fit: cover; width: 100%;
 }
 .img300 {
     width: 100%;
     height: 300px;
     object-fit: cover;
 }
+.img150{
+    height: 150px;
+    object-fit: cover; width: 100%;
+}
 .img250 {
     height: 250px;
-    object-fit: cover;
+    object-fit: cover; width: 100%;
 }
 .img200{
     height: 130px;
@@ -126,7 +130,7 @@
 }
 
 .pricing-tab-section {
-    margin-top: -60px;
+    margin-top: 0;
     padding-top: 120px;
 }
 .footer-widget{ margin-bottom:0 }
@@ -136,6 +140,20 @@
 .bd-blog-title{ font-size:1.6rem }
 
 .heading123{ color:#fff; font-size:1.4rem; margin-bottom:.5rem }
+
+.nav-wrapper nav{ text-align: center; }
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.topserach{ width:100%;     display: flex;     margin-top: 24px; }
+.topserach input{ width:100%;     padding: 5px 10px; }
+.topserach button{ padding:0 10px; }
+.pagination{ margin-top:2rem }
+
 
 @media (max-width: 414px){
     .breadcrumb-content h2{ font-size: 1.2rem; }

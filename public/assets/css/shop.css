@@ -1,0 +1,23 @@
+.shop{}
+.hm2-blog-card .hm2-blog-card-content .tag-btn{ font-size:.6rem;     padding: 5px 10px;     top: -10px; transform: translateX(45%); }
+.hm2-blog-card .hm2-blog-card-content h3{ font-size:.8rem; font-weight:100 }
+.hm2-blog-card .hm2-blog-card-content {
+    padding: 25px 10px 20px 10px;
+}
+
+.price{ display:flex;justify-content: space-between; }
+.addcard{ padding:0 5px; border-radius:2px }
+
+.pd-2{ padding:.5rem 1rem }
+.div_card{ display:flex;      flex-direction: row; gap: 10px; }
+.project h1{ font-size:2rem }
+.div_card input{ width:50px; text-align:center; }
+
+.border-radius{ border-radius:5px !important; }
+
+.img525{ height:525px; object-fit:cover; }
+
+.align-items-center {
+    align-items: flex-start !important;
+}
+.breadcrumb-content{ padding-top:20px }

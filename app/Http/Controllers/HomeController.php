@@ -75,11 +75,12 @@ class HomeController extends Controller
     public function page(Request $request, $slug)
     {
         $data = Post::where('slug', $slug)->firstOrFail();
+        $section = Section::where('post_id', $data->id)->paginate('10');
         if ($slug=='brokers' || $slug=='signals-vault') {
-            return view('pages.brokers', compact('data'));
+            return view('pages.brokers', compact('data', 'section'));
         }
         if ($slug=='premium-indicators') {
-            return view('pages.premium-indicators', compact('data'));
+            return view('pages.premium-indicators', compact('data', 'section'));
         }
     }
 
@@ -104,7 +105,6 @@ class HomeController extends Controller
         }else{
             if ($data->sort_by == 'Product') {
                 $cats = Category::where('sort_by','Product')->where('parent','>',0)->get();
-                $provinces = Province::get();
 
                 $cat_array = $request->input('categories', $cat_array);
                 $query = Post::query()->orderBy('id', 'DESC');
@@ -114,17 +114,16 @@ class HomeController extends Controller
                 if (!empty($cat_array)) {
                     $query->whereIn('category_id', $cat_array);
                 }
-                $posts = $query->paginate($request->get('per_page', 12));
+                $posts = $query->paginate($request->get('per_page', 30));
 
                 return view('pages.category', compact(
                     'data',
                     'cats',
-                    'provinces',
                     'posts',
                 ));
             }
             if ($data->sort_by == 'News') {
-                $posts = Post::whereIn('category_id', $cat_array)->orderBy('id', 'DESC')->paginate(30);
+                $posts = Post::whereIn('category_id', $cat_array)->orderBy('id', 'DESC')->paginate(12);
                 return view('pages.news', compact(
                     'data',
                     'posts',

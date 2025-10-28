@@ -114,6 +114,19 @@ class PostController extends Controller
         // ---------------------
         $post->save();
 
+        if($request->hasFile('imgdetail')){
+            foreach ($request->file('imgdetail') as $file) {
+                if(isset($file)){
+                    $images = new Images();
+                    $images->post_id = $post->id;
+                    $filename = $this->saveImage($file);
+                    $images->img = $filename;
+                    $images->name = $filename;
+                    $images->save();
+                }
+            }
+        }
+
         return redirect('admin/post')->with('Success','Success');
     }
 
@@ -170,7 +183,6 @@ class PostController extends Controller
         if ($request->hasFile('img')) {
             if(File::exists('data/images/'.$post->img)) { File::delete('data/images/'.$post->img);} // xóa ảnh cũ
             $file = $request->file('img');
-            // $filename = saveImage($file); // Gọi hàm saveImage từ helper
             $filename = $this->saveImage($file);
             $post->img = $filename;
         }
@@ -178,13 +190,12 @@ class PostController extends Controller
         if($request->hasFile('imgdetail')){
             foreach ($request->file('imgdetail') as $file) {
                 if(isset($file)){
-                    $Images = new Images();
-                    $Images->post_id = $post->id;
-                    // $filename = saveImage($file); // Gọi hàm saveImage từ helper
+                    $images = new Images();
+                    $images->post_id = $post->id;
                     $filename = $this->saveImage($file);
-                    $Images->img = $filename;
-                    $Images->name = $filename;
-                    $Images->save();
+                    $images->img = $filename;
+                    $images->name = $filename;
+                    $images->save();
                 }
             }
         }

@@ -24,6 +24,9 @@
         <a class="nav-link" href="{{route('category.index')}}"><i class="fas fa-fw fa-chart-area"></i><span>Danh mục</span></a>
     </li>
     <li class="nav-item">
+        <a class="nav-link" href="{{route('product.index')}}"><i class="fas fa-fw fa-chart-area"></i><span>Sản phẩm</span></a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link" href="{{route('post.index')}}"><i class="fas fa-fw fa-chart-area"></i><span>Bài viết</span></a>
     </li>
 

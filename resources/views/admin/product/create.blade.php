@@ -37,52 +37,22 @@
                       <div class="row">
                           <div class="col-md-12">
                               <div class="form-group">
-                                  <label>Name</label>
+                                  <label>Tên Sản phẩm</label>
                                   <input name="name" placeholder="..." type="text" class="form-control">
-                                  <input name="slug" placeholder="..." type="text" class="form-control slug">
                               </div>
-                          </div>
-                          <div class="col-md-3">
-                              <div class="form-group">
-                                  <label>Address</label>
-                                  <input name="address" placeholder="..." type="text" class="form-control">
-                              </div>
-                          </div>
-                          <div class="col-md-3">
-                            <div class="form-group">
-                              <label class="">Tỉnh Thành</label>
-                              <select name="province_id" class="form-control select2" id="province">
-                                <option value="">...</option>
-                                
-                              </select>
-                              <div id="list_province"></div>
-                            </div>
-                          </div>
-                          <div class="col-md-3">
-                              <div class="form-group">
-                                <label class="">Quận/Huyện</label>
-                                <select name="" class="form-control select2" id="">
-                                  <option value="">...</option>
-                                  
-                                </select>
-                                <div id="list_province"></div>
-                            </div>
-                          </div>
-                          <div class="col-md-3">
-                              <div class="form-group">
-                                <label class="">Phường/Xã</label>
-                                <select name="" class="form-control select2" id="">
-                                  <option value="">...</option>
-                                  
-                                </select>
-                                <div id="list_province"></div>
-                            </div>
                           </div>
 
                           <div class="col-md-12">
                               <div class="form-group">
-                                  <label>Tổng quan</label>
-                                  <textarea name="content" class="form-control" id="ckeditor"></textarea>
+                                  <label>Mô tả ngắn</label>
+                                  <textarea rows="5" name="detail" class="form-control"></textarea>
+                              </div>
+                          </div>
+
+                          <div class="col-md-12">
+                              <div class="form-group">
+                                  <label>Nội dung</label>
+                                  <textarea rows="" name="content" class="form-control editor"></textarea>
                               </div>
                           </div>
                       </div>
@@ -124,20 +94,26 @@
             <div class="card-body">
                 <div class="form-group">
                     <label class="">Danh mục</label>
-                    <select required="" name='parent' class="form-control select2" id="parent">
+                    <select required="" name='category_id' class="form-control select2" id="parent">
                       <option value="">--Chọn danh mục--</option>
                       <?php addeditcat ($category,0,$str='',old('parent')); ?>
                     </select>
                     <div id="list_parent"></div>
                 </div>
                 <div class="form-group">
-                    <label>Price</label>
-                    <div style="display: flex;">
-                      <input name="price" placeholder="..." type="text" class="form-control">
-                      <select class="form-control" name="unit">
-                        <option value="Tỷ">Tỷ</option>
-                        <option value="Triệu">Triệu</option>
-                      </select>
+                    <div class="input-group">
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2">$</span>
+                        </div>
+                        <input type="text" name="price" class="form-control price" placeholder="Giá bán">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2">$</span>
+                        </div>
+                        <input type="text" name="price_max" class="form-control price" placeholder="Giá gốc">
                     </div>
                 </div>
             </div>
@@ -151,7 +127,7 @@
             <div class="card-body">
                 <div class="file-upload">
                     <div class="file-upload-content" onclick="$('.file-upload-input').trigger( 'click' )">
-                        <img class="file-upload-image" src="{{ isset($data) ? 'data/news/'.$data->img : 'data/no_image.jpg' }}" />
+                        <img class="file-upload-image" src="{{ isset($data) ? 'data/images/'.$data->img : 'data/no_image.jpg' }}" />
                     </div>
                     <div class="image-upload-wrap">
                         <input name="img" class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
@@ -174,37 +150,6 @@
         </div>
       </div>
 </div>
-
-<div>
-  <input value="Tổng quan" type="hidden" name="name_section[]" >
-  <input value="Overview" type="hidden" name="name_section:en[]">
-  <input value="概述" type="hidden" name="name_section:cn[]">
-</div>
-
-<div>
-  <input value="Vị trí" type="hidden" name="name_section[]" >
-  <input value="Location" type="hidden" name="name_section:en[]">
-  <input value="地點" type="hidden" name="name_section:cn[]">
-</div>
-
-<div>
-  <input value="Liên kết vùng" type="hidden" name="name_section[]" >
-  <input value="Regional link" type="hidden" name="name_section:en[]">
-  <input value="區域鏈接" type="hidden" name="name_section:cn[]">
-</div>
-
-<div>
-  <input value="Tiện ích" type="hidden" name="name_section[]" >
-  <input value="Utilities" type="hidden" name="name_section:en[]">
-  <input value="公用事業" type="hidden" name="name_section:cn[]">
-</div>
-
-<div>
-  <input value="Mặt bằng" type="hidden" name="name_section[]" >
-  <input value="Ground" type="hidden" name="name_section:en[]">
-  <input value="地面" type="hidden" name="name_section:cn[]">
-</div>
-
 
 </form>
 

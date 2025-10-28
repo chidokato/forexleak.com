@@ -34,10 +34,10 @@
             </div>
         </div>
         
-        @foreach($data->Section as $val)
+        @foreach($section as $val)
             @include('pages.iteam.broker')
         @endforeach
-
+        {{ $section->appends(request()->all())->links() }}
     </div>
 </div>
 <!-- Price -->

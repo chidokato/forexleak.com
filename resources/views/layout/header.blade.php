@@ -1,41 +1,65 @@
         <!--header area start-->
-        <header class="header-style-4">
+        <!-- <div class="topbar">
             <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-xl-2 col-lg-2 col-5">
-                        <div class="logo-wrapper">
-                            <a href="{{asset('')}}"><img src="data/images/{{$setting->img}}" alt="logo" class="logo"></a>
+                <div class="row align-item-center">
+                    <div class="col-md-6">
+                        <div class="topbar-left position-relative z-3">
+                            <p class="mb-0 csh-color-two">Get 50% Discount Offer <mark class="csh-color">26 Days</mark></p>
                         </div>
                     </div>
-                    <div class="col-xl-8 col-lg-7 d-none d-lg-block">
+                    <div class="col-md-6">
+                        <div class="topbar-right text-end position-relative z-3">
+                            <a href="" class="csh-color-two">Login / Sign up</a>
+                            <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="topbar d-block d-lg-block">
+            <div class="container">
+                <div class="row align-item-center">
+                    <div class="col-2 col-md-0 flex-center d-lg-none">
+                        <button class="mobile-menu-toggle border-0 d-block d-lg-none bg-transparent text-white mr-20"><i class="fa-solid fa-bars"></i></button>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="logo-wrapper">
+                            <a href="{{asset('')}}"><img src="https://forexunlocker.com/data/images/vector-smart-object-01.png" alt="logo" class="logo"></a>
+                            <!-- <a href="{{asset('')}}"><img src="data/images/{{$setting->img}}" alt="logo" class="logo"></a> -->
+                        </div>
+                    </div>
+                    <div class="col-md-7 flex-center d-none d-lg-block">
+                        <div class="topserach">
+                            <select>
+                                <option>All</option>
+                                <option>EXPERT ADVISOR</option>
+                            </select>
+                            <input type="" name="" placeholder="Search any Expert, Indicator, you need here..... If you can't find, Please message us! ( Best price )">
+                            <button class="host-fs-btn-bg border-0"><i class="fa fa-search " aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-4 flex-center">
+                        <div class="topbar-right text-end position-relative z-3">
+                            <a href="" class="csh-color-two">Login</a>
+                            <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <header class="header-style-4 d-none d-lg-block">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-12 col-lg-12 ">
                         <div class="nav-menu-4 nav-wrapper">
                             <nav>
                                 <ul>
                                     @include('partials.menu-megamenu', ['menus' => $menu])
                                 </ul>
                             </nav>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-7">
-                        <div class="sh-header-right d-flex align-items-center justify-content-end">
-                            <div class="sh-header-search wrapper dropdown ms-1">
-                                <button class="sh-header-search border-0 bg-transparent text-white" data-bs-toggle="dropdown"><i
-                                  class="fa-solid fa-magnifying-glass"></i></button>
-                                <div class="dropdown-menu dropdown-menu-end bg-transparent border-0">
-                                    <form class="header-search-form" action="#">
-                                        <input type="text" placeholder="Search....">
-                                        <input type="submit" value="Go">
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="sh-header-btn ml-40 flex-shrink-0 position-relative d-none d-sm-block footer-widget">
-                                <ul class="social-nav">
-                                    <li><a href="#" class="rounded-circle overflow-hidden position-relative d-flex align-items-center justify-content-center text-white"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#" class="rounded-circle overflow-hidden position-relative d-flex align-items-center justify-content-center text-white"><i class="fab fa-twitter"></i></a></li>
-                                </ul>
-                            </div>
-                            <button class="mobile-menu-toggle d-block d-lg-none border-0 bg-transparent text-white ml-20"><i
-                              class="fa-solid fa-bars"></i></button>
                         </div>
                     </div>
                 </div>
