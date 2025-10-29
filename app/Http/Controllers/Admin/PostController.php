@@ -62,7 +62,7 @@ class PostController extends Controller
 
 
         foreach ($posts as $key => $val) {
-            if ($val->category_id == 11) {
+            if ($val->category_id == 121) {
                 $post = Post::find($val->id);
                 $post->sort_by = 'Product';
                 $post->save();
