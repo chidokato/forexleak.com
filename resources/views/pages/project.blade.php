@@ -16,7 +16,7 @@
 
 @section('content')
 
-<div class="container project">
+<div class="container project mt-4">
     <div class="row align-items-center">
         <div class="col-xl-6">
 
@@ -44,7 +44,7 @@
                 <nav>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{asset('')}}">Home</a></li>
-                        <li class="breadcrumb-item active">{{$post->name}}</li>
+                        <li class="breadcrumb-item active"><span>{{$post->name}}</span></li>
                     </ol>
                 </nav>
             </div>

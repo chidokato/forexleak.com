@@ -10,7 +10,7 @@
 
 .pd-2{ padding:.5rem 1rem }
 .div_card{ display:flex;      flex-direction: row; gap: 10px; }
-.project h1{ font-size:2rem }
+.project h1{ font-size:1.5rem; margin-bottom:1rem }
 .div_card input{ width:50px; text-align:center; }
 
 .border-radius{ border-radius:5px !important; }
@@ -21,3 +21,13 @@
     align-items: flex-start !important;
 }
 .breadcrumb-content{ padding-top:20px }
+
+.breadcrumb-content ol li span{
+        display: -webkit-box !important;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 1;
+    width: 90%;    text-align: left;
+}
+.breadcrumb {
+    flex-wrap: nowrap;}
