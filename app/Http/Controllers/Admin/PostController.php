@@ -60,6 +60,17 @@ class PostController extends Controller
         }
         $posts = $posts->paginate(30);
 
+
+        foreach ($posts as $key => $val) {
+            if ($val->category_id == 118) {
+                $post = Post::find($val->id);
+                $post->sort_by = 'Product';
+                $post->save();
+            }
+        }
+
+
+
         return view('admin.post.index', compact(
             'posts',
             'category'
