@@ -23,7 +23,7 @@ class Authenticate extends Middleware
     public function handle($request, Closure $next, ...$guards)
     {
         if (!Auth::check()) {
-            return redirect()->route('login');
+            return redirect()->route('login')->with('error', 'Bạn không có quyền truy cập');
         }
 
         $user = Auth::User(); // lấy thông tin user khi đã đăng nhập
@@ -31,7 +31,7 @@ class Authenticate extends Middleware
         if ($user->permission == 1)
             return $next($request);
         else
-            return redirect()->route('account');
+            return redirect()->route('login')->with('error', 'Bạn không có quyền truy cập');
 
         // return $next($request);
     }
