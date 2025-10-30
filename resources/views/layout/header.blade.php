@@ -41,7 +41,7 @@
                     </div>
                     <div class="col-md-2 col-4 flex-center">
                         <div class="topbar-right text-end position-relative z-3">
-                            <a href="" class="csh-color-two">Login</a>
+                            <a href="{{ route('google.redirect') }}" class="csh-color-two">Login</a>
                             <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
                         </div>
                     </div>
