@@ -40,7 +40,7 @@
                                 <td><a href="{{route('product.edit',[$val->id])}}" class="mr-2"> {{$val->name}} </a></td>
                                 <td>{{$val->category->name}}</td>
                                 <td>{{$val->status}}</td>
-                                <td>${{$val->price}} / <span style="text-decoration: line-through;">${{$val->price}}</span></td>
+                                <td>${{$val->price}} / <span style="text-decoration: line-through;">${{$val->price_max}}</span></td>
                                 <td>Admin</td>
                                 <td>{{$val->sort_by}}</td>
                                 <td>
