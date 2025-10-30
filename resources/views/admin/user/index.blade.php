@@ -40,13 +40,13 @@
                                 <td>{{$val->email}}</td>
                                 <td>{{$val->permission}}</td>
                                 <td>{{$val->created_at}}</td>
-                                <td>
+                                <td style="display: flex;">
                                     <a href="{{route('users.edit',[$val->id])}}" class="mr-2"><i class="fas fa-edit" aria-hidden="true"></i></a>
-                                    <!-- <form action="{{route('users.destroy', [$val->id])}}" method="POST">
+                                    <form action="{{route('users.destroy', [$val->id])}}" method="POST">
                                       @method('DELETE')
                                       @csrf
-                                      <button onclick="return confirm('xác nhận')">Delete</button>
-                                    </form> -->
+                                      <button class="button_none" onclick="return confirm('Bạn muốn xóa bản ghi ?')"><i class="fas fa-trash-alt"></i></button>
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach

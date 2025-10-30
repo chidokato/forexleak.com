@@ -41,7 +41,14 @@
                     </div>
                     <div class="col-md-2 col-4 flex-center">
                         <div class="topbar-right text-end position-relative z-3">
+                            @if(Auth::check())
+                            <a href="{{ Auth::check() ? url('account/main') : url('dangnhap') }}">
+                                <img class="avatar" src="{{ Auth::user()->avatar }}" alt="user">
+                            </a>
+                            @else
                             <a href="{{ route('google.redirect') }}" class="csh-color-two">Login</a>
+                            @endif
+
                             <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
                         </div>
                     </div>
