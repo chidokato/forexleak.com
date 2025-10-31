@@ -1,7 +1,7 @@
 @extends('admin.layout.main')
 
 @section('content')
-@include('admin.alert')
+
 
 <form method="post" action="{{route('category.store')}}">
 @csrf

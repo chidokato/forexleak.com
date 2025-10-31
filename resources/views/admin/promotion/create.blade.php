@@ -11,7 +11,6 @@
 @endsection
 
 @section('content')
-@include('admin.alert')
 
 <form method="post" action="{{route('promotion.store')}}">
 @csrf

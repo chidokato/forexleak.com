@@ -1,7 +1,6 @@
 @extends('admin.layout.main')
 
 @section('content')
-@include('admin.alert')
 <form method="post" action="{{route('users.store')}}" enctype="multipart/form-data">
 @csrf
 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow fixed">
@@ -44,10 +43,10 @@
                               <div class="form-group">
                                   <label>Quyền người dùng</label>
                                   <select name="permission" class="form-control">
-                                    <option value="6">Member</option>
                                     <option value="1">SuperAdmin</option>
                                     <option value="2">Admin</option>
-                                    
+                                    <option value="3">Author</option>
+                                    <option value="6">-Member-</option>
                                   </select>
                               </div>
                               <div class="form-group">
@@ -62,7 +61,7 @@
                           <div class="col-md-6">
                               <div class="form-group">
                                   <label>Họ & Tên</label>
-                                  <input name="yourname" placeholder="..." type="text" class="form-control">
+                                  <input name="name" placeholder="..." type="text" class="form-control">
                               </div>
                               <div class="form-group">
                                   <label>Địa chỉ</label>

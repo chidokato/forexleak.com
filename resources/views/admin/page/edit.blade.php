@@ -9,7 +9,6 @@
 @endsection
 
 @section('content')
-@include('admin.alert')
 <?php use App\Models\Images; use App\Models\Option; ?>
 <form id="validateForm" method="POST" action="{{route('page.update', [$data->id])}}" enctype="multipart/form-data">
 @csrf

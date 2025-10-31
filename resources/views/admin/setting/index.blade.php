@@ -1,7 +1,6 @@
 @extends('admin.layout.main')
 
 @section('content')
-@include('admin.alert')
 
 <form method="POST" action="{{route('setting.update', [$data->id])}}" enctype="multipart/form-data">
 @csrf

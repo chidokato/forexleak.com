@@ -1,6 +1,5 @@
 @extends('admin.layout.main')
 @section('content')
-@include('admin.alert')
 <?php use App\Models\Images; use App\Models\Option; ?>
 <form id="validateForm" method="POST" action="{{route('post.update', [$data->id])}}" enctype="multipart/form-data">
 @csrf

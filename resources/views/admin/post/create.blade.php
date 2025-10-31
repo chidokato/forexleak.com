@@ -2,7 +2,6 @@
 
 @section('content')
 
-@include('admin.alert')
 <form id="validateForm" method="post" action="{{route('post.store')}}" enctype="multipart/form-data">
 @csrf
 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow fixed">

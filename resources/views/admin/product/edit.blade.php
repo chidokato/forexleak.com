@@ -1,6 +1,5 @@
 @extends('admin.layout.main')
 @section('content')
-@include('admin.alert')
 <?php use App\Models\Images; ?>
 <?php use App\Models\CategoryTranslation; ?>
 <form method="POST" action="{{route('product.update', [$data->id])}}" enctype="multipart/form-data">

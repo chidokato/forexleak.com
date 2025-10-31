@@ -1,6 +1,5 @@
 @extends('admin.layout.main')
 @section('content')
-@include('admin.alert')
 
 <form method="POST" action="{{route('category.update', [$data->id])}}">
 @csrf

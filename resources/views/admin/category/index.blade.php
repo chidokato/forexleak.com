@@ -2,7 +2,6 @@
 
 @section('content')
 @include('admin.layout.header')
-@include('admin.alert')
 <?php use App\Models\CategoryTranslation; ?>
 <div class="d-sm-flex align-items-center justify-content-between mb-3 flex">
     <h2 class="h3 mb-0 text-gray-800 line-1 size-1-3-rem">{{__('lang.category')}}</h2>
@@ -69,7 +68,7 @@
                         <td>
                             <label class="container"><input <?php if($val->status == 'true'){echo "checked";} ?> type="checkbox" id='status' ><span class="checkmark"></span></label>
                         </td>
-                        <td>{{$val->user->yourname}}</td>
+                        <td>{{$val->user->name}}</td>
                         <td class="date">{{date('d/m/Y',strtotime($val->created_at))}} <sup title="Sửa lần cuối: {{date('d/m/Y',strtotime($val->updated_at))}}"><i class="fa fa-question-circle-o" aria-hidden="true"></i></sup> </td>
                         <td style="display: flex;">
                             <!-- <a href="admin/category/double/{{$val->id}}" class="mr-2"><i class="far fa-copy"></i></a> -->

@@ -66,7 +66,7 @@ class CategoryController extends Controller
         }
 
         $category->save();
-        return redirect('admin/category')->with('success','updated successfully');
+        return redirect('admin/category')->with('success','Thành công');
     }
 
     /**
@@ -127,7 +127,7 @@ class CategoryController extends Controller
 
         $category->save();
         
-        return redirect('admin/category')->with('success','updated successfully');
+        return redirect('admin/category')->with('success','Thành công');
 
     }
 

@@ -104,7 +104,7 @@ class ProductController extends Controller
             }
         }
 
-        return redirect('admin/product')->with('Success','Success');
+        return redirect('admin/product')->with('success','Thành công');
     }
 
     /**
@@ -178,11 +178,8 @@ class ProductController extends Controller
                 }
             }
         }
-        
-        
 
-
-        return redirect()->back()->with('Success','Success');
+        return redirect()->back()->with('success','Thành công');
     }
 
     /**
@@ -204,6 +201,6 @@ class ProductController extends Controller
       if(File::exists('data/images/'.$Post->img)) { File::delete('data/images/'.$Post->img);} // xóa ảnh cũ
       $Post->delete();
 
-      return redirect()->back()->with('Success','Success');
+      return redirect()->back()->with('success','success');
     }
 }

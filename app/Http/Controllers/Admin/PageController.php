@@ -108,7 +108,7 @@ class PageController extends Controller
         // ---------------------
         $post->save();
 
-        return redirect('admin/page')->with('Success','Success');
+        return redirect('admin/page')->with('success','Thành công');
     }
 
     /**
@@ -181,7 +181,7 @@ class PageController extends Controller
         }
         $post->save();
 
-        return redirect()->back()->with('Success','Success');
+        return redirect()->back()->with('success','Thành công');
     }
 
     /**
@@ -208,7 +208,7 @@ class PageController extends Controller
         }
 
         $Post->delete();
-        return redirect()->back()->with('Success','Success');
+        return redirect()->back()->with('success','Thành công');
     }
 
 

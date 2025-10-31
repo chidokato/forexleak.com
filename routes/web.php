@@ -69,32 +69,27 @@ Route::group(['prefix'=>'ajax'],function(){
 
 
 
-Route::middleware(['admin'])->group(function () {
-    Route::prefix('admin')->group(function () {
-        // main
-        Route::get('main', [MainController::class, 'index'])->name('admin');
-
+Route::prefix('admin')->group(function () {
+    Route::middleware(['admin:1'])->group(function () {
+        Route::resource('users',UserController::class);
+        Route::resource('cart',CartController::class);
+        Route::resource('customer',CustomerController::class);
+    });
+    Route::middleware(['admin:2'])->group(function () {
         Route::resource('menu',MenuController::class);
         Route::resource('category',CategoryController::class);
-        
-        Route::resource('cart',CartController::class);
-
-        Route::resource('option',OptionController::class);
-        Route::get('option/double/{id}', [OptionController::class, 'double']);
-
-        Route::resource('page',PageController::class);
-
-        Route::resource('post',PostController::class);
-        // Route::get('post/post_up/{id}', [PostController::class, 'post_up'])->name('post_up');
-
-        Route::resource('product',ProductController::class);
-        Route::resource('customer',CustomerController::class);
-        Route::resource('promotion',PromotionController::class);
-
         Route::resource('setting',SettingController::class);
         Route::resource('slider',SliderController::class);
+        Route::resource('option',OptionController::class);
+        Route::get('option/double/{id}', [OptionController::class, 'double']);
+        Route::resource('promotion',PromotionController::class);
+    });
+    Route::middleware(['admin:3'])->group(function () {
+        Route::get('main', [MainController::class, 'index'])->name('admin');
 
-        Route::resource('users',UserController::class);
+        Route::resource('page',PageController::class);
+        Route::resource('post',PostController::class);
+        Route::resource('product',ProductController::class);
 
         Route::group(['prefix'=>'section'],function(){
             Route::get('list/{id}', [SectionController::class, 'index']);
@@ -103,8 +98,6 @@ Route::middleware(['admin'])->group(function () {
             Route::post('save/{id}', [SectionController::class, 'updateSection'])->name('section.update');
             Route::get('dell/{id}', [SectionController::class, 'DellSection'])->name('section.dell');
         });
-
-        
     });
 });
 

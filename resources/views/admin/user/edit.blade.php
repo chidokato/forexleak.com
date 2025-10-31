@@ -1,7 +1,6 @@
 @extends('admin.layout.main')
 
 @section('content')
-@include('admin.alert')
 <form method="POST" action="{{route('users.update', [$data->id])}}" enctype="multipart/form-data">
 @csrf
 @method('PUT')
@@ -47,7 +46,8 @@
                                   <select name="permission" class="form-control">
                                     <option <?php if($data->permission == 1){echo "selected";} ?> value="1">SuperAdmin</option>
                                     <option <?php if($data->permission == 2){echo "selected";} ?> value="2">Admin</option>
-                                    <option <?php if($data->permission == 6){echo "selected";} ?> value="6">Member</option>
+                                    <option <?php if($data->permission == 3){echo "selected";} ?> value="3">Author</option>
+                                    <option <?php if($data->permission == 6){echo "selected";} ?> value="6">-Member-</option>
                                   </select>
                               </div>
                               <div class="form-group">
@@ -62,7 +62,7 @@
                           <div class="col-md-6">
                               <div class="form-group">
                                   <label>Họ & Tên</label>
-                                  <input value="{{$data->yourname}}" name="yourname" placeholder="..." type="text" class="form-control">
+                                  <input value="{{$data->name}}" name="name" placeholder="..." type="text" class="form-control">
                               </div>
                               <div class="form-group">
                                   <label>Địa chỉ</label>

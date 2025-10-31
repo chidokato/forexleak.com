@@ -64,7 +64,7 @@ class MenuController extends Controller
         }
 
         $menu->save();
-        return redirect('admin/menu')->with('success','updated successfully');
+        return redirect('admin/menu')->with('success','Thành công');
     }
 
     /**
@@ -123,7 +123,7 @@ class MenuController extends Controller
         }
         // thêm ảnh
         $menu->save();
-        return redirect()->back();
+        return redirect()->back()->with('success','Thành công');
     }
 
     /**
@@ -137,6 +137,6 @@ class MenuController extends Controller
         $menu = Menu::find($id);
         if(File::exists('data/menu/800/'.$menu->img)) { File::delete('data/menu/800/'.$menu->img); } // xóa ảnh cũ
         $menu->delete();
-        return redirect()->back();
+        return redirect()->back()->with('success','Thành công');
     }
 }

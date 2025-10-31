@@ -2,7 +2,6 @@
 
 @section('content')
 @include('admin.layout.header')
-@include('admin.alert')
 
 <div class="d-sm-flex align-items-center justify-content-between mb-3 flex">
     <h2 class="h3 mb-0 text-gray-800 line-1 size-1-3-rem">Danh sách</h2>

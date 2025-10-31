@@ -19,8 +19,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('id', 'DESC')->get();
-        return view('admin.user.index', compact('users'));
+        $admins = User::where('permission', '<', '6')->orderBy('id', 'DESC')->get();
+        return view('admin.user.index', compact('admins'));
     }
 
     /**
@@ -55,7 +55,7 @@ class UserController extends Controller
         $User->email = $request->email;
         $User->password = bcrypt($request->password);
         $User->permission = $request->permission;
-        $User->yourname = $request->yourname;
+        $User->name = $request->name;
         $User->address = $request->address;
         $User->phone = $request->phone;
         $User->facebook = $request->facebook;
@@ -113,12 +113,12 @@ class UserController extends Controller
 
         $User->email = $request->email;
         $User->permission = $request->permission;
-        $User->yourname = $request->yourname;
+        $User->name = $request->name;
         $User->address = $request->address;
         $User->phone = $request->phone;
         $User->facebook = $request->facebook;
         $User->save();
-        return redirect()->back()->with('success','Thành công');
+        return redirect('admin/users')->with('success','Thành công');
     }
 
     /**

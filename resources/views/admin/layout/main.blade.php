@@ -131,6 +131,7 @@
         });
     </script>
 
+    @include('admin.alert')
 
     @yield('js')
 </body>

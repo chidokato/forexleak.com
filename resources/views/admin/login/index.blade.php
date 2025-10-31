@@ -48,7 +48,6 @@
                 <div class="text-center">
                   <h4 class="mt-1 mb-5 pb-1">Đăng nhập vào trang quản trị</h4>
                 </div>
-                @include('admin.alert')
                 <form id="validateForm" action="admin" method="post" name="registerform">
                     @csrf
                   <p>Please login to your account</p>

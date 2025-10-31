@@ -1,7 +1,6 @@
 @extends('admin.layout.main')
 
 @section('content')
-@include('admin.alert')
 <form method="post" action="{{route('slider.store')}}" enctype="multipart/form-data">
 @csrf
 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow fixed">

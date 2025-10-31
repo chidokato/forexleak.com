@@ -1,7 +1,6 @@
 @extends('admin.layout.main')
 
 @section('content')
-@include('admin.alert')
 <?php use App\Models\Category; ?>
 <form method="post" action="{{route('product.store')}}" enctype="multipart/form-data">
 @csrf

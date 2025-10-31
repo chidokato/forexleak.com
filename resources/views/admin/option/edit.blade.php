@@ -1,7 +1,6 @@
 @extends('admin.layout.main')
 
 @section('content')
-@include('admin.alert')
 
 <form method="post" action="{{route('option.update', [$data->id])}}" enctype="multipart/form-data">
 @csrf
