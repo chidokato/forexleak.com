@@ -157,6 +157,8 @@
 
 .topbar .topbar-right .avatar{ width:30px; height:30px; border-radius:100% }
 
+.bg-none{ border:none; background:none }
+
 @media (max-width: 414px){
     .breadcrumb-content h2{ font-size: 1.2rem; }
     .breadcrumb-area nav ol li{ font-size:.8rem }

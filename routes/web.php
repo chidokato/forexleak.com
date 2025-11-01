@@ -8,7 +8,6 @@ use App\Http\Controllers\Admin\Users\UserController;
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\CartController;
 use App\Http\Controllers\Admin\OptionController;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\ProductController;
@@ -27,6 +26,9 @@ use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\HomeSystemController;
+
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
      \UniSharp\LaravelFilemanager\Lfm::routes();
@@ -104,24 +106,21 @@ Route::prefix('admin')->group(function () {
 // home view
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('sitemap.xml', [HomeController::class, 'sitemap'])->name('sitemap');
-// Route::get('search', [HomeController::class, 'search'])->name('search');
 
 // home system
 Route::get('sendmail', [HomeSystemController::class, 'sendmail'])->name('sendmail');
 Route::post('question', [HomeSystemController::class, 'question'])->name('question');
-// Route::get('seach/filter/posts', [HomeSystemController::class, 'filterPosts'])->name('posts.filter');
 
 // add to cart
-Route::prefix('product')->group(function () {
-    Route::get('add-to-cart/{id}', [HomeController::class, 'addTocart'])->name('addTocart'); // thêm sản phẩm vào giỏ hàng
-    Route::get('addtocart_munti', [HomeController::class, 'addTocart_munti'])->name('addTocart_munti'); // thêm sản phẩm vào giỏ hàng
-    Route::get('showCart', [HomeController::class, 'showCart'])->name('showCart'); // show giỏ hàng
-    Route::POST('updateCart', [HomeController::class, 'updateCart'])->name('updateCart'); // update giỏ hàng
-    Route::get('delCart', [HomeController::class, 'delCart'])->name('delCart'); // delete sản phẩm trong giỏ hàng
-    Route::get('checkout', [HomeController::class, 'checkout'])->name('checkout'); // thanh toán
-    Route::get('get_checkout', [HomeController::class, 'checkout'])->name('get_checkout'); // thanh toán
-    Route::POST('order', [HomeController::class, 'order'])->name('order'); // thanh toán
-});
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+Route::post('/cart/update', [CartController::class, 'update'])->name('cart.update');
+Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
+Route::post('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
+
+// checkout
+Route::get('/checkout', [CheckoutController::class, 'show'])->name('checkout.show');
+Route::post('/checkout', [CheckoutController::class, 'process'])->name('checkout.process');
 
 // account
 Route::get('dangnhap', [AccountController::class, 'dangnhap'])->name('dangnhap');

@@ -54,12 +54,23 @@
             </p>
             <hr>
             <div class="div_card">
-                <input type="number" name="" value="1">
-                <button class="addcard host-fs-btn-bg border-0 pd-2">Add to Card</button>
+                <div class="div_card">
+                    <form action="{{ route('cart.add') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="post_id" value="{{ $post->id }}">
+                        <input type="hidden" name="name" value="{{ $post->name }}">
+                        <input type="hidden" name="price" value="{{ $post->price }}">
+                        <input type="number" name="quantity" value="1" min="1" max="10" class="">
+                        <button type="submit" class="template-btn outline-btn btn-small">
+                            Add to Cart
+                        </button>
+                    </form>
+                </div>
+
             </div>
             <hr>
             <div class="div_login">
-                <button class="template-btn outline-btn fs-outline-hover-style text-warning host-fs-border-clr rounded-pill border-radius">Login to Google</button>
+                <!-- <button class="template-btn outline-btn fs-outline-hover-style text-warning host-fs-border-clr rounded-pill border-radius">Login to Google</button> -->
             </div>
             
         </div>

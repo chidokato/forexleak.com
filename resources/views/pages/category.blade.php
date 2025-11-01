@@ -33,7 +33,7 @@
             <div class="col-xl-12">
                 <div class="hm-blog-grid-left">
                     <div class="row g-4">
-                        @foreach($posts as $val)
+                        @foreach($product as $val)
                         <div class="col-md-2">
                             <div class="hm2-blog-card bg-white deep-shadow">
                                 <div class="feature-img rounded-top overflow-hidden">
@@ -45,7 +45,7 @@
                                         <h3 class="h5 mb-3 text-truncate-set text-truncate-set-2">{{$val->name}}</h3>
                                     </a>
                                     <div class="price">
-                                        <span>${{$val->price}}20</span>
+                                        <span>{{$val->price? '$'.$val->price:'$0'}}</span>
                                         <button class="addcard host-fs-btn-bg border-0">Add to Card</button>
                                     </div>
                                 </div>
@@ -54,7 +54,7 @@
                         @endforeach
                         
                     </div>
-                    {{ $posts->appends(request()->all())->links() }}
+                    {{ $product->appends(request()->all())->links() }}
                 </div>
             </div>
             

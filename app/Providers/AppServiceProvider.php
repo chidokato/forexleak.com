@@ -15,6 +15,10 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //
+
+        $this->app->singleton(\App\Services\CartService::class, function($app) {
+            return new \App\Services\CartService('cart'); // 'cart' là session key
+        });
     }
 
     /**

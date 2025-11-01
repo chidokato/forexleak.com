@@ -49,7 +49,11 @@
                             <a href="{{ route('google.redirect') }}" class="csh-color-two">Login</a>
                             @endif
 
-                            <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <!-- <a href="#"><i class="fa-solid fa-cart-shopping"></i></a> -->
+                            <a href="{{ route('cart.index') }}">
+                                <i class="fa-solid fa-cart-shopping"></i> (<span id="cart-count">{{ app(\App\Services\CartService::class)->count() }}</span>)
+                            </a>
+
                         </div>
                     </div>
 
