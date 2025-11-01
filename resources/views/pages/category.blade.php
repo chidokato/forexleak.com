@@ -33,7 +33,7 @@
             <div class="col-xl-12">
                 <div class="hm-blog-grid-left">
                     <div class="row g-4">
-                        @foreach($product as $val)
+                        @foreach($posts as $val)
                         <div class="col-md-2">
                             <div class="hm2-blog-card bg-white deep-shadow">
                                 <div class="feature-img rounded-top overflow-hidden">
@@ -54,7 +54,7 @@
                         @endforeach
                         
                     </div>
-                    {{ $product->appends(request()->all())->links() }}
+                    {{ $posts->appends(request()->all())->links() }}
                 </div>
             </div>
             
