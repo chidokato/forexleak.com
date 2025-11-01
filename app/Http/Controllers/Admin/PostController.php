@@ -61,13 +61,13 @@ class PostController extends Controller
         $posts = $posts->paginate(30);
 
 
-        // foreach ($posts as $key => $val) {
-        //     if ($val->category_id == 119) {
-        //         $post = Post::find($val->id);
-        //         $post->sort_by = 'Product';
-        //         $post->save();
-        //     }
-        // }
+        foreach ($posts as $key => $val) {
+            if ($val->category_id == 121) {
+                $post = Post::find($val->id);
+                $post->sort_by = 'Product';
+                $post->save();
+            }
+        }
 
 
 
