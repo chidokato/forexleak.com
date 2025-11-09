@@ -13,7 +13,7 @@
 @section('content')
 
 
-<section class="hero-22 position-relative z-1" style="background-image: url(assets/img/hero-bg-22.png);">
+<section class="hero-22 position-relative z-1" style="background-image: url(https://forexunlocker.com/data/images/launching-soon.png);">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-10 col-xxl-8">
