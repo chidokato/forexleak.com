@@ -12,8 +12,9 @@
 
 @section('content')
 
-
-<section class="hero-22 position-relative z-1" style="background-image: url(https://forexunlocker.com/data/images/launching-soon.png);">
+@foreach($slider as $key => $val)
+@if($key ==0)
+<section class="hero-22 position-relative z-1" style="background-image: url(data/images/{{$val->img}});">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-10 col-xxl-8">
@@ -42,7 +43,8 @@
         </div>
     </div>
 </section>
-
+@endif
+@endforeach
 
 <section class="hm-blog-grids pt-100 pb-100 overflow-hidden shop">
     <div class="container">
