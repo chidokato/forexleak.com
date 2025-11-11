@@ -146,6 +146,11 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
+
+        $request->validate([
+            'file' => 'required|file|max:2048', // giới hạn 2MB
+        ]);
+
         $post = Post::find($id);
         $post->slug = $data['slug'];
         $post->name = $data['name'];
@@ -156,6 +161,26 @@ class ProductController extends Controller
         $post->description = $data['description'];
         $post->price = $data['price'];
         $post->price_max = $data['price_max'];
+
+        if ($request->file('file')) {
+            if (!empty($post->filename)) {
+                $oldPath = str_replace('\\', '/', public_path('upfiles/' . $post->filename));
+                if (File::exists($oldPath)) {
+                    File::delete($oldPath);
+                }
+            }
+
+            $file = $request->file('file');
+            $originalName = $file->getClientOriginalName(); // Lấy tên gốc của file
+            $cleanName = preg_replace('/[^A-Za-z0-9_\-\.]/', '_', $originalName);
+            $fileName = time() . '_' . $cleanName; // Đặt tên file (nếu muốn tránh trùng)
+            $destinationPath = public_path('upfiles'); // Thư mục lưu trong thư mục public
+            if (!file_exists($destinationPath)) {
+                mkdir($destinationPath, 0777, true); // Tạo thư mục nếu chưa có
+            }
+            $file->move($destinationPath, $fileName); // Di chuyển file đến thư mục public/upfiles
+            $post->filename = $fileName;
+        }
 
         if ($request->hasFile('img')) {
             if(File::exists('data/images/'.$post->img)) { File::delete('data/images/'.$post->img);} // xóa ảnh cũ

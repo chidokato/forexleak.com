@@ -130,6 +130,20 @@
                         <input type="text" name="price_max" value="{{$data->price_max}}" class="form-control price" placeholder="Giá gốc">
                     </div>
                 </div>
+                <div class="form-group">
+                    <label class="">File sản phẩm</label>
+                    <div class="input-group mb-2">
+                        <input type="file" name="file" value="" class="" placeholder="File">
+                    </div>
+                    {{-- Nếu có file cũ, hiển thị nút View --}}
+                    @if(!empty($data->filename))
+                        <a href="{{ asset('upfiles/' . $data->filename) }}" 
+                           target="_blank" 
+                           class="btn btn-sm btn-success ms-2">
+                           <i class="fa fa-eye"></i> Xem/Tải file
+                        </a>
+                    @endif
+                </div>
                 
             </div>
           </div>
