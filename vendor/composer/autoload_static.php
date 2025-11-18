@@ -554,6 +554,7 @@ class ComposerStaticInit65ca7ca961350f6828ef5c0bf7ab1be9
     );
 
     public static $classMap = array (
+        'App\\Console\\Commands\\CancelExpiredDeposits' => __DIR__ . '/../..' . '/app/Console/Commands/CancelExpiredDeposits.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Helpers\\CategoryHelper' => __DIR__ . '/../..' . '/app/Helpers/CategoryHelper.php',

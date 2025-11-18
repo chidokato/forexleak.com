@@ -6,6 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Console\\Commands\\CancelExpiredDeposits' => $baseDir . '/app/Console/Commands/CancelExpiredDeposits.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Helpers\\CategoryHelper' => $baseDir . '/app/Helpers/CategoryHelper.php',

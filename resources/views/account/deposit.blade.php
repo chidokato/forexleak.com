@@ -116,11 +116,8 @@
                                                     </span>
                                                 </td>
                                                 <td>
-                                                    @if(!in_array($tx->status, ['cancelled', 'success']))
-                                                        <a href="{{ url('account/deposits/show/' . $tx->id) }}"
-                                                           class="btn btn-sm btn-outline-primary">
-                                                           View
-                                                        </a>
+                                                    @if(!in_array($tx->status, ['cancelled', 'success', 'processing']))
+                                                        <a href="{{ url('account/deposits/show/' . $tx->id) }}" class="btn btn-sm btn-outline-primary"> View </a>
                                                     @endif
                                                 </td>
                                             </tr>

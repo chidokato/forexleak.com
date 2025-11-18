@@ -40,11 +40,13 @@ return new class extends Migration
             $table->string('proof_image_path')->nullable()->after('note');
         });
     }
+
     public function down()
     {
         Schema::table('deposit_transactions', function (Blueprint $table) {
             $table->dropColumn('proof_image_path');
         });
     }
+
 
 };

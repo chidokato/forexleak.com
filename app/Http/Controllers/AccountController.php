@@ -155,7 +155,7 @@ class AccountController extends Controller
 
         // bắt buộc có ảnh, tối đa 5MB
         $request->validate([
-            'proof' => 'required|image|mimes:jpg,jpeg,png,webp|max:5120',
+            'proof' => 'required|image|mimes:jpg,jpeg,png,webp|max:10240',
         ]);
 
         // lưu ảnh vào storage/public/deposit_proofs

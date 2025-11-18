@@ -56,7 +56,7 @@
   tick();
 
   function confirmCancel() {
-    if (confirm('Bạn xác nhận hủy lệnh nạp tiền?')) {
+    if (confirm('Are you sure you want to cancel this deposit order?')) {
       document.getElementById('cancel-form').submit();
     }
   }
