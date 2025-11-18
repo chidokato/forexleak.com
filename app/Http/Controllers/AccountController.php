@@ -38,7 +38,13 @@ class AccountController extends Controller
     {
         $user = User::find(Auth::user()->id);
         if ($url == 'deposit') {
-            return view('account.deposit', compact('user'));
+            $transactions = DepositTransaction::where('user_id', Auth::id())
+                ->orderBy('created_at', 'desc')
+                ->paginate(10);
+            return view('account.deposit', compact(
+                'user',
+                'transactions',
+            ));
         }
     }
 

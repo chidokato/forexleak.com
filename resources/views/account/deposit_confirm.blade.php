@@ -14,14 +14,14 @@
 
       <h5>⏳ Time remaining: <span id="countdown"></span></h5>
 
-      <p class="mt-3">Please complete your payment within 1 minute.</p>
+      <p class="mt-3">Please complete your payment within 10 minute.</p>
       <p>After the time runs out, this order will be automatically cancelled.</p>
 
       {{-- Nút hành động --}}
       <div class="mt-4 d-flex gap-2 justify-content-center">
           {{-- Nút Hủy --}}
           <button type="button" class="btn btn-outline-danger btn-sm" onclick="confirmCancel()">
-              Cancel order
+              Cancel
           </button>
 
           {{-- Upload ảnh + Xác nhận --}}
@@ -29,7 +29,7 @@
                 method="POST" enctype="multipart/form-data" class="d-flex gap-2 align-items-center">
               @csrf
               <input type="file" name="proof" accept="image/*" required class="form-control form-control-sm" style="max-width:230px">
-              <button type="submit" class="btn btn-success btn-sm">I’ve transferred — Confirm</button>
+              <button type="submit" class="btn btn-success btn-sm">Confirm</button>
           </form>
       </div>
 

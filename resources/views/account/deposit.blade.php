@@ -75,7 +75,65 @@
                         </div>
                         <hr>
                         <h4 class="">Deposit history</h4>
+                        @if($transactions->isEmpty())
+                            <p class="text-muted mt-2">You don’t have any deposit yet.</p>
+                        @else
+                            <div class="table-responsive mt-3">
+                                <table class="table table-dark table-striped align-middle mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Time</th>
+                                            <th>Order Code</th>
+                                            <th>Amount</th>
+                                            <th>Method</th>
+                                            <th>Status</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($transactions as $index => $tx)
+                                            @php
+                                                $badgeClass = match($tx->status) {
+                                                    'success'   => 'bg-success',
+                                                    'processing'=> 'bg-info',
+                                                    'pending'   => 'bg-warning text-dark',
+                                                    'cancelled' => 'bg-secondary',
+                                                    'failed'    => 'bg-danger',
+                                                    default     => 'bg-light text-dark',
+                                                };
+                                            @endphp
 
+                                            <tr>
+                                                <td>{{ $index + 1 }}</td>
+                                                <td>{{ $tx->created_at->format('Y-m-d H:i') }}</td>
+                                                <td>{{ $tx->order_code }}</td>
+                                                <td>${{ number_format($tx->amount, 0) }}</td>
+                                                <td>{{ strtoupper($tx->method) }}</td>
+                                                <td>
+                                                    <span class="badge {{ $badgeClass }}">
+                                                        {{ ucfirst($tx->status) }}
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    @if(!in_array($tx->status, ['cancelled', 'success']))
+                                                        <a href="{{ url('account/deposits/show/' . $tx->id) }}"
+                                                           class="btn btn-sm btn-outline-primary">
+                                                           View
+                                                        </a>
+                                                    @endif
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                </table>
+                            </div>
+
+                            {{-- Nếu dùng paginate() trong controller --}}
+                            <div class="mt-3">
+                                {{ $transactions->links() }}
+                            </div>
+                        @endif
                         <hr>
                         <div class="host-fs-support-area pt-50 pb-40">
                             <div class="container">
