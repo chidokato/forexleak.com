@@ -26,6 +26,7 @@ use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\HomeSystemController;
+use App\Http\Controllers\DepositTransactionController;
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
@@ -103,6 +104,28 @@ Route::prefix('admin')->group(function () {
     });
 });
 
+// account
+Route::get('dangnhap', [AccountController::class, 'dangnhap'])->name('dangnhap');
+Route::middleware(['user'])->group(function () {
+    Route::prefix('account')->group(function () {
+        Route::get('main', [AccountController::class, 'index'])->name('account.main');
+        Route::get('transfer/{url}', [AccountController::class, 'transfer']);
+        
+        // Đổi lại route nạp tiền
+        Route::get('deposits', [AccountController::class, 'depositHistory']);
+        Route::post('deposits', [AccountController::class, 'depositCreate'])->name('account.deposits.store');
+        Route::put('deposits/{id}', [AccountController::class, 'depositUpdate']);
+        Route::get('deposits/show/{id}', [AccountController::class, 'showDeposit'])->name('account.showDeposit');
+        // routes/web.php (trong group /account)
+        Route::post('deposits/{id}/cancel',  [AccountController::class, 'depositCancel'])->name('account.deposits.cancel');
+        Route::post('deposits/{id}/confirm', [AccountController::class, 'depositConfirm'])->name('account.deposits.confirm');
+
+
+        Route::get('/{url}', [AccountController::class, 'category']);
+    });
+});
+
+
 // home view
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('sitemap.xml', [HomeController::class, 'sitemap'])->name('sitemap');
@@ -122,14 +145,7 @@ Route::post('/cart/clear', [CartController::class, 'clear'])->name('cart.clear')
 Route::get('/checkout', [CheckoutController::class, 'show'])->name('checkout.show');
 Route::post('/checkout', [CheckoutController::class, 'process'])->name('checkout.process');
 
-// account
-Route::get('dangnhap', [AccountController::class, 'dangnhap'])->name('dangnhap');
-Route::middleware(['user'])->group(function () {
-    Route::prefix('account')->group(function () {
-        Route::get('main', [AccountController::class, 'index'])->name('account.main');
-        
-    });
-});
+
 // Route::get('dangky', [HomeController::class, 'dangky'])->name('dangky');
 // Route::prefix('account')->group(function () {
 //     Route::get('info', [HomeController::class, 'account'])->name('account');

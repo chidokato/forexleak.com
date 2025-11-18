@@ -49,7 +49,7 @@ class GoogleController extends Controller
                 $user = User::create([
                     'name' => $googleUser->getName() ?? $googleUser->getNickname() ?? 'User',
                     'email' => $googleUser->getEmail(),
-                    'permission' => 6,
+                    'permission' => '6',
                     'password' => bcrypt(Str::random(24)), // user sẽ login bằng Google, password random
                     'google_id' => $googleUser->getId(),
                     'avatar' => $googleUser->getAvatar(),
@@ -68,16 +68,19 @@ class GoogleController extends Controller
         }
 
         // Login user trong Laravel
-        // Auth::login($user, true);
-        
-        // Kiểm tra quyền
+        Auth::login($user, true);
+
+        // Phân luồng theo permission
         if ($user->permission < 6) {
-            Auth::login($user, true);
-            return redirect()->intended('admin/main');
+            // Admin
+            return redirect()->route('admin'); // route admin
+        } elseif ($user->permission == 6) {
+            // User bình thường
+            return redirect()->route('account.main'); // route admin hoặc route giao diện người dùng
         } else {
-            Auth::logout(); // thoát luôn để tránh user chưa đủ quyền vẫn giữ session
-            return redirect('dangnhap')
-                ->with('error', 'lỗi');
+            // Nếu permission > 6, phòng trường hợp không hợp lệ
+            Auth::logout();
+            return redirect('dangnhap')->with('error', 'Tài khoản không hợp lệ');
         }
     }
 }

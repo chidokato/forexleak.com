@@ -1,0 +1,22 @@
+.account{}
+.account .avarar img{ width:100% }
+.account{}
+.rounded-12{ border:1px solid; }
+
+.width100{width:100%}
+
+.bank-information{ margin-bottom:1rem; margin-top:1rem }
+.bank-information li{ font-size:1.1rem; margin-bottom:1rem }
+
+.footer-widget .footer-sb-form input[type=text] {
+    width: 100%;
+    padding: 20px 100px 20px 20px;
+    background-color: #293571;
+    border-radius: 5px;
+    border: 0;
+    color: #fff;
+}
+
+[data-bs-theme=dark] .footer-widget .footer-sb-form input[type=text] {
+    background: rgba(255, 255, 255, .1);
+}

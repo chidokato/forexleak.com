@@ -159,6 +159,14 @@
 
 .bg-none{ border:none; background:none }
 
+.sidebar-widget .widget-title{     padding-bottom: 7px; }
+
+.sidebar-widget .active::before {
+    background: linear-gradient(95.45deg, #ff7e5d 0.64%, #ff7e5d 98.23%);
+}
+
+.pd-2{ padding:2rem }
+
 @media (max-width: 414px){
     .breadcrumb-content h2{ font-size: 1.2rem; }
     .breadcrumb-area nav ol li{ font-size:.8rem }
