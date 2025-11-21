@@ -45,7 +45,10 @@
                                     <td colspan="3"><a href="{{ url('/') }}" class="btn btn-primary mt-3">Back to Cart</a></td>
                                     <td><form action="{{ route('checkout.process') }}" method="POST">
                                         @csrf
-                                        <button type="submit" class="btn btn-success">Confirm & Pay</button>
+                                        <!-- <button type="submit" class="btn btn-success">Confirm & Pay</button> -->
+                                        <button type="button" id="btn-confirm" class="btn btn-success">
+                                            Confirm & Pay
+                                        </button>
                                     </form></td>
                                 </tr>
                             </tbody>
@@ -57,5 +60,25 @@
         </div>
     </div>
 </section>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+document.getElementById('btn-confirm').addEventListener('click', function () {
+    Swal.fire({
+        title: 'Confirm Payment?',
+        text: "Your account balance will be deducted to complete this payment.",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, pay now!',
+        cancelButtonText: 'Cancel'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.querySelector('form').submit();
+        }
+    });
+});
+</script>
 
 @endsection
