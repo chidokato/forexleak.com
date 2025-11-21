@@ -28,6 +28,8 @@
                         <div class="col-lg-9">
                             <div class="tab-content mt-1 mt-lg-0">
                                     <div class="accordion hm2-accordion deep-shadow bg-white">
+                                        <h4 class="">Balance: <span>${{$user->balance?$user->balance:'0'}}</span></h4>
+                        <hr>
                                         <div class="hm-contact-form " id="contact">
                                             <form action="#" method="POST" id="contactForm" class="contact-us-form">
                                                 <div class="row justify-content-center">
