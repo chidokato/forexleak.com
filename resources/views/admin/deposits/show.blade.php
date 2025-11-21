@@ -45,5 +45,9 @@
     </div>
 
     <a href="{{ route('deposits.index') }}" class="btn btn-secondary mt-3">Back to List</a>
+
+    <div>
+        <img src="uploads/{{$deposit->proof_image_path}}">
+    </div>
 </div>
 @endsection
