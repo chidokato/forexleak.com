@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\PromotionController;
+use App\Http\Controllers\Admin\DepositTransactionController;
 
 use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Auth\GoogleController;
@@ -26,7 +27,6 @@ use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\HomeSystemController;
-use App\Http\Controllers\DepositTransactionController;
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
@@ -77,6 +77,12 @@ Route::prefix('admin')->group(function () {
         Route::resource('users',UserController::class);
         Route::resource('cart',CartController::class);
         Route::resource('customer',CustomerController::class);
+        Route::resource('deposits',DepositTransactionController::class);
+        Route::post('deposits/{deposit}/approve', [DepositTransactionController::class, 'approve'])->name('deposits.approve');
+        Route::post('deposits/{deposit}/reject', [DepositTransactionController::class, 'reject'])->name('deposits.reject');
+        Route::post('deposits/{deposit}/update-status', [DepositTransactionController::class, 'updateStatus'])->name('deposits.updateStatus');
+
+
     });
     Route::middleware(['admin:2'])->group(function () {
         Route::resource('menu',MenuController::class);
@@ -144,6 +150,8 @@ Route::post('/cart/clear', [CartController::class, 'clear'])->name('cart.clear')
 // checkout
 Route::get('/checkout', [CheckoutController::class, 'show'])->name('checkout.show');
 Route::post('/checkout', [CheckoutController::class, 'process'])->name('checkout.process');
+Route::get('/checkout/success/{order}', [CheckoutController::class, 'success'])->name('checkout.success');
+
 
 
 // Route::get('dangky', [HomeController::class, 'dangky'])->name('dangky');

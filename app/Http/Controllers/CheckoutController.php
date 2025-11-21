@@ -2,95 +2,86 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Services\CartService;
 use App\Models\Order;
 use App\Models\OrderItem;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
-class CheckoutController extends Controller
+class CheckoutController extends HomeController
 {
-    protected $cart;
+    
 
-    public function __construct(CartService $cart)
+    // Hiển thị trang checkout
+    public function show()
     {
-        $this->cart = $cart;
+        $user = Auth::user();
+        $cart = session()->get('cart', []);
+        $total = collect($cart)->sum(fn($item) => $item['price'] * $item['quantity']);
+
+        return view('cart.checkout', compact('cart', 'total', 'user'));
     }
 
-    /**
-     * Trang hiển thị thông tin đặt hàng
-     */
-    public function index()
+    // Xử lý thanh toán
+    public function process(Request $request)
     {
-        $items = $this->cart->forCheckout();
-        $total = collect($items)->sum('subtotal');
-        return view('checkout.index', compact('items', 'total'));
-    }
+        $user = Auth::user();
+        $cart = session()->get('cart', []);
+        $total = collect($cart)->sum(fn($item) => $item['price'] * $item['quantity']);
 
-    /**
-     * Xử lý đặt hàng
-     */
-    public function store(Request $request)
-    {
-        $validated = $request->validate([
-            'customer_name' => 'required|string|max:255',
-            'customer_email' => 'nullable|email|max:255',
-            'customer_phone' => 'nullable|string|max:50',
-            'customer_address' => 'nullable|string|max:255',
-        ]);
+        if (empty($cart)) {
+            return redirect()->back()->with('error', 'Your cart is empty.');
+        }
 
-        // Lấy dữ liệu giỏ hàng
-        $items = $this->cart->forCheckout();
-        if (empty($items)) {
-            return back()->with('error', 'Giỏ hàng của bạn đang trống.');
+        if ($user->balance < $total) {
+            return redirect()->back()->with('error', 'Insufficient balance to pay.');
         }
 
         DB::beginTransaction();
         try {
-            // Tính tổng tiền
-            $total = collect($items)->sum('subtotal');
+            // Trừ tiền user
+            $user->balance -= $total;
+            $user->save();
 
             // Tạo đơn hàng
+            $orderCode = 'ORD-' . date('Ymd-His') . '-' . strtoupper(Str::random(4));
             $order = Order::create([
-                'user_id' => auth()->id(),
-                'customer_name' => $validated['customer_name'],
-                'customer_email' => $validated['customer_email'] ?? null,
-                'customer_phone' => $validated['customer_phone'] ?? null,
-                'customer_address' => $validated['customer_address'] ?? null,
+                'user_id' => $user->id,
+                'order_code' => $orderCode, // thêm vào database
+                'customer_name' => $request->customer_name ?? $user->name,
                 'total_price' => $total,
-                'status' => 'pending',
+                'status' => 'paid',
             ]);
 
-            // Lưu từng sản phẩm trong đơn
-            foreach ($items as $item) {
+            foreach ($cart as $item) {
                 OrderItem::create([
                     'order_id' => $order->id,
                     'product_id' => $item['id'],
                     'product_name' => $item['name'],
                     'price' => $item['price'],
                     'quantity' => $item['quantity'],
-                    'subtotal' => $item['subtotal'],
+                    'subtotal' => $item['price'] * $item['quantity'],
                 ]);
             }
 
             DB::commit();
 
-            // Xóa giỏ hàng sau khi đặt xong
-            $this->cart->clear();
+            // Xóa giỏ hàng
+            session()->forget('cart');
 
-            return redirect()->route('checkout.success', ['order' => $order->id])
-                             ->with('success', 'Đặt hàng thành công!');
+            return redirect()->route('checkout.success', $order->id)
+                             ->with('success', 'Payment successful!');
         } catch (\Exception $e) {
             DB::rollBack();
-            return back()->with('error', 'Lỗi khi tạo đơn hàng: ' . $e->getMessage());
+            return redirect()->back()->with('error', 'Payment failed: ' . $e->getMessage());
         }
     }
 
-    /**
-     * Trang thông báo đặt hàng thành công
-     */
+    // Trang thông báo thành công
     public function success(Order $order)
     {
-        return view('checkout.success', compact('order'));
+        return view('cart.success', compact('order'));
     }
 }

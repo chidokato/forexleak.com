@@ -35,8 +35,11 @@
         <a class="nav-link" href="{{route('page.index')}}"><i class="fas fa-fw fa-chart-area"></i><span>Trang</span></a>
     </li>
     
-   
     <li class="nav-item">
+        <a class="nav-link" href="{{route('deposits.index')}}"><i class="fas fa-fw fa-chart-area"></i><span>Deposits</span></a>
+    </li>
+   
+    <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#customer"
             aria-expanded="true" aria-controls="customer">
             <i class="fas fa-fw fa-wrench"></i>
@@ -45,11 +48,11 @@
         <div id="customer" class="collapse" aria-labelledby="headingUtilities"
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <!-- <a class="collapse-item" href="{{route('cart.index')}}">Đơn hàng</a> -->
+                <a class="collapse-item" href="{{route('cart.index')}}">Đơn hàng</a>
                 <a class="collapse-item" href="{{route('customer.index')}}">Data</a>
             </div>
         </div>
-    </li>
+    </li> -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#setting"
             aria-expanded="true" aria-controls="setting">

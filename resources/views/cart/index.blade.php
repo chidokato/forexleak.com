@@ -7,26 +7,6 @@
 
 @section('content')
 
-<!-- <h1>Giỏ hàng của bạn</h1>
-
-@if(!empty($items))
-    <ul>
-        @foreach($items as $item)
-            <li>
-                {{ $item['name'] }} - {{ number_format($item['price'], 0, ',', '.') }}đ 
-                x {{ $item['quantity'] }} =
-                {{ number_format($item['subtotal'], 0, ',', '.') }}đ
-                <a href="{{ route('cart.remove', $item['id']) }}">Xóa</a>
-            </li>
-        @endforeach
-    </ul>
-
-    <p><strong>Tổng tiền:</strong> {{ number_format($total, 0, ',', '.') }}đ</p>
-    <a href="{{ route('checkout.show') }}">Tiến hành đặt hàng</a>
-@else
-    <p>Giỏ hàng trống.</p>
-@endif -->
-
 <section class="manage-plan-section pb-120 mt-4 cart-main">
     <div class="container">
         <div class="manage-table-pricing-wrapper bg-white rounded">
@@ -76,7 +56,13 @@
                                     <td></td>
                                     <td></td>
                                     <td>${{ number_format($total, 0, ',', '.') }}</td>
-                                    <td><a href="{{ route('checkout.show') }}" class="template-btn primary-btn rounded-2 btn-small">Checkout</a></td>
+                                    <td>
+                                        @if(Auth::check())
+                                        <a href="{{ route('checkout.show') }}" class="template-btn primary-btn rounded-2 btn-small">Checkout</a>
+                                        @else
+                                        <a href="{{ route('google.redirect') }}" class="template-btn primary-btn rounded-2 btn-small">Login to Google</a>
+                                        @endif
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>

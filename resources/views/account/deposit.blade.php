@@ -27,7 +27,7 @@
                 </div>
                 <div class="col-lg-9">
                     <div class="accordion hm2-accordion rounded-2 deep-shadow bg-white" id="accordion_2">
-                        <h4 class="">Balance: <span>${{$user->total_amount?$user->total_amount:'0'}}</span></h4>
+                        <h4 class="">Balance: <span>${{$user->balance?$user->balance:'0'}}</span></h4>
                         <hr>
                         <div class="row justify-content-center g-4">
                             <div class="col-xl-4 col-lg-4 col-sm-6">
@@ -103,7 +103,7 @@
                                                     </span>
                                                 </td>
                                                 <td>
-                                                    @if(!in_array($tx->status, ['cancelled', 'success', 'processing']))
+                                                    @if(!in_array($tx->status, ['cancelled', 'success', 'processing', 'approved']))
                                                         <a href="{{ url('account/deposits/show/' . $tx->id) }}" class="btn btn-sm btn-outline-primary"> View </a>
                                                     @endif
                                                 </td>

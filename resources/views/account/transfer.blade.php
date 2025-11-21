@@ -27,7 +27,7 @@
                 </div>
                 <div class="col-lg-9">
                     <div class="accordion hm2-accordion rounded-2 deep-shadow bg-white" id="accordion_2">
-                        <h4 class="">Balance: <span>${{$user->total_amount?$user->total_amount:'0'}}</span></h4>
+                        <h4 class="">Balance: <span>${{$user->balance?$user->balance:'0'}}</span></h4>
                         <hr>
                         <div class="row">
                             <div class="col-lg-7 col-md-7">
