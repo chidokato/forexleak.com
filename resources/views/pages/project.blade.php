@@ -60,8 +60,8 @@
                         <input type="hidden" name="post_id" value="{{ $post->id }}">
                         <input type="hidden" name="name" value="{{ $post->name }}">
                         <input type="hidden" name="price" value="{{ $post->price }}">
-                        <input type="number" name="quantity" value="1" min="1" max="10" class="">
-                        <button type="submit" class="template-btn outline-btn btn-small">
+                        <input type="number" name="quantity" value="1" min="1" max="10" class="template-btn outline-btn btn-small">
+                        <button type="submit" class="template-btn secondary-btn btn-small">
                             Add to Cart
                         </button>
                     </form>

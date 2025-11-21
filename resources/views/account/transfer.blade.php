@@ -31,30 +31,56 @@
                         <hr>
                         <div class="row">
                             <div class="col-lg-7 col-md-7">
-                                <ul class="bank-information">
-                                    <li>Bank: </li>
-                                    <li>Account Number: </li>
-                                    <li>Beneficiary Name: </li>
-                                    <li>Transfer content: </li>
-                                </ul>
+                                @if($url == 'bank')
+                                    <ul class="bank-information">
+                                        <li>Bank: </li>
+                                        <li>Account Number: </li>
+                                        <li>Beneficiary Name: </li>
+                                        <li>Transfer content: </li>
+                                    </ul>
+                                @elseif($url == 'ctypto')
+                                    <select id="network" class="template-btn ctypto-buton">
+                                        <option value="trc20">Tron (TRC20)</option>
+                                        <option value="bep20">BNB Smart Chain (BEP20)</option>
+                                    </select>
+                                    <ul class="bank-information" id="crypto-info">
+                                        <li id="crypto-name"></li>
+                                        <li class="d-flex align-items-center">
+                                            <span id="crypto-address" class="me-2"></span>
+                                            <button id="copy-address" class="btn btn-sm btn-outline-light">Copy</button>
+                                        </li>
+                                    </ul>
+                                    <div id="toast-copy" class="toast-copy">Copied!</div>
+                                @endif
+
                                 <div class="footer-widget footer-sb-widget mt-2">
                                     <h5 class="text-white position-relative mb-4 widget-title">Deposit amount</h5>
                                     <form action="{{ route('account.deposits.store') }}" method="post" class="footer-sb-form position-relative">
                                         @csrf
+                                        @if($url == 'bank')
+                                        <input type="hidden" name="methods" value="bank_transfer">
+                                        @elseif($url == 'ctypto')
+                                        <input type="hidden" name="methods" value="ctypto_transfer">
+                                        @endif
                                         <input type="text" name="amount" placeholder="enter the amount" required>
                                         <button type="submit" class="template-btn primary-btn btn-small">Start loading</button>
                                     </form>
                                 </div>
 
                                 <p class="mt-2">
-                                    You will have 10 minutes to complete the deposit process, after 10 minutes the order will be automatically canceled.
+                                    You will have 10 minutes to complete the deposit process...
                                 </p>
 
                             </div>
+
+                            <!-- ẢNH Ở NGOÀI NHƯ BẠN MUỐN -->
                             <div class="col-lg-5 col-md-5">
-                                <div class="img"><img class="width100" src="https://qrcode-gen.com/images/qrcode-default.png"></div>
+                                <div class="img">
+                                    <img id="crypto-img" src="" class="width100">
+                                </div>
                             </div>
                         </div>
+
                         <hr>
                         
                         <div class="host-fs-support-area pt-50 pb-40">
@@ -117,6 +143,49 @@
 @endsection
 
 
-@section('script')
+@section('js')
+<script>
+    const data = {
+    trc20: {
+        img: "{{ asset('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlTWf74Rtl6747xTtb680Kl0gp90KQ4VnH2g&s') }}",
+        name: "Tron (TRC20)",
+        address: "TTS89dsfdsa854954dsfdsfdsaf"
+    },
+    bep20: {
+        img: "{{ asset('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlTWf74Rtl6747xTtb680Kl0gp90KQ4VnH2g&s') }}",
+        name: "BNB Smart Chain (BEP20)",
+        address: "0x3495834958fdas95435fdsafda"
+    }
+};
 
+$("#network").on("change", function () {
+    const v = $(this).val();
+    $("#crypto-img").attr("src", data[v].img);
+    $("#crypto-name").text(data[v].name);
+    $("#crypto-address").text(data[v].address);
+});
+
+// Copy button
+$(document).on("click", "#copy-address", function () {
+    let text = $("#crypto-address").text();
+    navigator.clipboard.writeText(text).then(function () {
+
+        let toast = $("#toast-copy");
+        toast.text("Copied: " + text);
+
+        toast.addClass("show");
+
+        setTimeout(() => {
+            toast.removeClass("show");
+        }, 2000);
+    });
+});
+
+
+// chạy lần đầu
+$("#network").trigger("change");
+
+
+
+</script>
 @endsection

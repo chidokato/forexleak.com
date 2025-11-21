@@ -51,9 +51,8 @@ class AccountController extends Controller
     public function transfer($url)
     {
         $user = User::find(Auth::user()->id);
-        if ($url == 'bank') {
-            return view('account.transfer', compact('user'));
-        }
+        return view('account.transfer', compact('user', 'url'));
+
     }
 
     /* =============================
@@ -106,7 +105,7 @@ class AccountController extends Controller
             'user_id' => Auth::id(),
             'order_code' => 'ORD-' . strtoupper(Str::random(10)),
             'amount' => $request->amount,
-            'method' => 'bank_transfer',
+            'method' => $request->methods,
             'status' => 'pending',
             'ip_address' => $request->ip(),
         ]);

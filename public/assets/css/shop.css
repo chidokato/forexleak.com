@@ -11,7 +11,7 @@
 .pd-2{ padding:.5rem 1rem }
 .div_card{ display:flex;      flex-direction: row; gap: 10px; }
 .project h1{ font-size:1.5rem; margin-bottom:1rem }
-.div_card input{ width:50px; text-align:center; }
+.div_card input{ width:80px; text-align:center; padding:12px 5px }
 
 .border-radius{ border-radius:5px !important; }
 

@@ -35,21 +35,7 @@
                     <div class="row g-4">
                         @foreach($posts as $val)
                         <div class="col-md-2">
-                            <div class="hm2-blog-card bg-white deep-shadow">
-                                <div class="feature-img rounded-top overflow-hidden">
-                                    <a href="{{$val->category->slug}}/{{$val->slug}}"><img src="data/images/{{$val->img}}" alt="feature" class="img-fluid img150"></a>
-                                </div>
-                                <div class="hm2-blog-card-content position-relative">
-                                    <a href="{{$val->category->slug}}" class="tag-btn rounded-pill position-absolute">{{$val->category->name}}</a>
-                                    <a href="{{$val->category->slug}}/{{$val->slug}}">
-                                        <h3 class="h5 mb-3 text-truncate-set text-truncate-set-2">{{$val->name}}</h3>
-                                    </a>
-                                    <div class="price">
-                                        <span>{{$val->price? '$'.$val->price:'$0'}}</span>
-                                        <button class="addcard host-fs-btn-bg border-0">Add to Card</button>
-                                    </div>
-                                </div>
-                            </div>
+                            @include('pages.iteam.product')
                         </div>
                         @endforeach
                         

@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-lg-5 col-md-6">
                     <div class="footer-widget footer-widget-1">
-                        <a href="index-2.html" class="footer-logo"><img src="assets/img/logo-white.png" class="logo" alt="logo"></a>
+                        <a href="index-2.html" class="footer-logo"><img src="https://forexunlocker.com/data/images/vector-smart-object-01.png" class="logo" alt="logo"></a>
                         <p class="text-white mt-30">Our service works seamlessly in the background—just as promised. With responsive customer support and a deep understanding of your needs, we're here to ensure everything runs smoothly, so you don’t have to think twice</p>
                         <div class="footer-social mt-5">
                             <h5 class="ft-subtitle text-white position-relative d-inline-block">Follow us on</h5>

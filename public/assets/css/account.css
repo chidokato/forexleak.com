@@ -20,3 +20,33 @@
 [data-bs-theme=dark] .footer-widget .footer-sb-form input[type=text] {
     background: rgba(255, 255, 255, .1);
 }
+
+.account .zindex-1 .icon-main{ font-size:3rem }
+
+.ctypto-buton{ padding:10px }
+
+#copy-address {
+    padding: 3px 8px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.toast-copy {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #28a745;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 14px;
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+    transition: all .4s ease;
+    z-index: 99999;
+}
+.toast-copy.show {
+    opacity: 1;
+    transform: translateY(0);
+}

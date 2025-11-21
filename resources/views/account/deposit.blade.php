@@ -31,11 +31,11 @@
                         <hr>
                         <div class="row justify-content-center g-4">
                             <div class="col-xl-4 col-lg-4 col-sm-6">
-                                <a href="account/transfer/bank">
+                                <a href="account/transfer/ctypto">
                                     <div class="dm-pp-domain-item position-relative overflow-hidden zindex-1">
-                                        <i class="fa-solid fa-building-columns"></i>
+                                        <i class="fa-brands fa-bitcoin icon-main"></i>
                                         <span class="dm-offer-badge fw-bold text-white position-absolute">0% fee</span>
-                                        <h6 class="mt-4">Bank Transfer</h6>
+                                        <h6 class="mt-4">CRYPTO</h6>
                                         <span class="subtitle">Min $20</span>
                                         Select<i class="fa-solid fa-arrow-right-long"></i>
                                         <span class="circle-small position-absolute"></span>
@@ -47,7 +47,7 @@
                             <div class="col-xl-4 col-lg-4 col-sm-6">
                                 <a href="account/transfer/bank">
                                     <div class="dm-pp-domain-item position-relative overflow-hidden zindex-1">
-                                        <i class="fa-solid fa-building-columns"></i>
+                                        <i class="fa-solid fa-building-columns icon-main"></i>
                                         <span class="dm-offer-badge fw-bold text-white position-absolute">0% fee</span>
                                         <h6 class="mt-4">Bank Transfer</h6>
                                         <span class="subtitle">Min $20</span>
@@ -58,20 +58,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="col-xl-4 col-lg-4 col-sm-6">
-                                <a href="account/transfer/bank">
-                                    <div class="dm-pp-domain-item position-relative overflow-hidden zindex-1">
-                                        <i class="fa-solid fa-building-columns"></i>
-                                        <span class="dm-offer-badge fw-bold text-white position-absolute">0% fee</span>
-                                        <h6 class="mt-4">Bank Transfer</h6>
-                                        <span class="subtitle">Min $20</span>
-                                        Select<i class="fa-solid fa-arrow-right-long"></i>
-                                        <span class="circle-small position-absolute"></span>
-                                        <span class="circle-shape shape-1 position-absolute"></span>
-                                        <span class="circle-shape shape-2 position-absolute"></span>
-                                    </div>
-                                </a>
-                            </div>
+                            
                         </div>
                         <hr>
                         <h4 class="">Deposit history</h4>
