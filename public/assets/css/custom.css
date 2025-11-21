@@ -1,3 +1,11 @@
+body{     background-color: #1e1e2c; }
+.header-style-4 {
+    background: #33313d;
+}
+.hm2-blog-card {
+    background: #33313d !important;
+}
+
 .nav-wrapper ul li.has-submenu .submenu-wrapper.home{ 
     width:200px; left:0 ;
 }

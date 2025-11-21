@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html data-bs-theme="dark">
 <head>
     <!-- seo -->
     <base href="{{asset('')}}">

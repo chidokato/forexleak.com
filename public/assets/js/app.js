@@ -46,46 +46,18 @@
       return false;
     }); // Hide ofcanvus when click outside it.
 
+    // Đóng menu khi click ra ngoài
     $(document).on("mouseup", function (e) {
       const ofcanvusMenu = $(".ofcanvus-menu");
 
       if (!ofcanvusMenu.is(e.target) && ofcanvusMenu.has(e.target).length === 0) {
         ofcanvusMenu.removeClass("active");
       }
-    }); //dark light mood
+    });
 
-    var setDarkMode = (active = false) => {
-      var wrapper = document.querySelector(":root");
+    // Luôn đặt website ở chế độ tối
+    // $(":root").attr("data-bs-theme", "dark");
 
-      if (active) {
-        wrapper.setAttribute("data-bs-theme", "dark");
-        localStorage.setItem("theme", "dark");
-      } else {
-        wrapper.setAttribute("data-bs-theme", "dark");
-        localStorage.setItem("theme", "dark");
-      }
-    };
-
-    var toggleDarkMode = () => {
-      var theme = document.querySelector(":root").getAttribute("data-bs-theme"); // If the current theme is "light", we want to activate dark
-
-      setDarkMode(theme === "dark");
-    };
-
-    var initDarkMode = () => {
-      var theme = localStorage.getItem("theme");
-
-      if (theme == "dark") {
-        setDarkMode(true);
-      } else {
-        setDarkMode(false);
-      }
-
-      var toggleButton = document.querySelector(".dark-light-switcher");
-      toggleButton && toggleButton.addEventListener("click", toggleDarkMode);
-    };
-
-    initDarkMode(); //Pricing Table
 
     $(".switch-input").on("change", function () {
       if (this.checked) {
