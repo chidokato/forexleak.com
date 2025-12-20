@@ -15,7 +15,7 @@
 
     @foreach ($Post as $val)
     <url>
-        <loc>{{asset('')}}{{$val->category->slug}}/{{$val->slug}}</loc>
+        <loc>{{asset('')}}{{$val->category?->slug}}/{{$val->slug}}</loc>
         <changefreq>always</changefreq>
         <priority>{{ $val->sort_by == 'Product' ? "0.9" : "0.7" }}</priority>
     </url>
