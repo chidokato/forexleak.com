@@ -80,7 +80,7 @@
                                 <td>{{number_format($val->price).' '.$val->unit}} 
                                     <div class="slug" style="color:red">{{$val->sale?'sale: '.$val->sale.'%':''}}</div>
                                 </td>
-                                <td>{{$val->category_id ? $val->category->name : ''}}</td>
+                                <td>{{$val->category_id ? $val->category?->name : ''}}</td>
                                 <td>
                                     <label class="container"><input <?php if($val->hot == 'true'){echo "checked";} ?> type="checkbox" id='hot_post' ><span class="checkmark"></span></label>
                                 </td>
