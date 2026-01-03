@@ -50,32 +50,26 @@ class PostController extends Controller
 
     public function index()
     {
-        $category = Category::where('sort_by', 'News')->where('parent', '0')->orderBy('view', 'DESC')->get();
-        $posts = Post::where('sort_by', 'News')->orderBy('id', 'DESC');
-        if($key = request()->key){
-            $posts->where('name', 'like', '%' . $key . '%');
-        }
-        if($cid = request()->cid){
-            $posts->where('category_id', $cid);
-        }
-        $posts = $posts->paginate(30);
+        $category = Category::where('sort_by', 'News')
+            ->where('parent', '0')
+            ->orderBy('view', 'DESC')
+            ->get();
 
+        $posts = Post::query()
+            ->where('sort_by', 'News')
+            ->when(request('key'), function ($q) {
+                $q->where('name', 'like', '%' . request('key') . '%');
+            })
+            ->when(request('cid'), function ($q) {
+                $q->where('category_id', request('cid'));
+            })
+            ->orderByDesc('id')
+            ->paginate(40)
+            ->withQueryString(); // giữ ?key=&cid= khi bấm qua trang
 
-        // foreach ($posts as $key => $val) {
-        //     if ($val->category_id == 119) {
-        //         $post = Post::find($val->id);
-        //         $post->sort_by = 'Product';
-        //         $post->save();
-        //     }
-        // }
-
-
-
-        return view('admin.post.index', compact(
-            'posts',
-            'category'
-        ));
+        return view('admin.post.index', compact('posts', 'category'));
     }
+
 
     /**
      * Show the form for creating a new resource.
