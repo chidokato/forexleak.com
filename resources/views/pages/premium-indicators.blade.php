@@ -66,6 +66,15 @@
 </section>
 <!--pricing section end-->
 
+<section class="container">
+    <div class="main-content-detail">
+        {!! $data->content !!}
+    </div>
+    
+    
+</section>
+
+
 @endsection
 
 @section('js')
