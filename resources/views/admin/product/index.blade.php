@@ -8,6 +8,42 @@
 </div>
 
 <div class="row">
+     <form method="GET" action="{{ url()->current() }}">
+          <div class="align-items-center">
+
+            <div class="col-xl-12 col-lg-12 search d-flex flex-wrap gap-2 align-items-center">
+              <input
+                type="text"
+                name="key"
+                value="{{ request('key') }}"
+                placeholder="Tìm kiếm..."
+                class="form-control"
+              >
+
+              <select name="cid" class="form-select form-control">
+                <option value="">-- Tất cả danh mục --</option>
+                @foreach($category as $c)
+              <option value="{{ $c->id }}">{{ $c->name }}</option>
+
+              @foreach($c->children as $child)
+                <option value="{{ $child->id }}">— {{ $child->name }}</option>
+              @endforeach
+                @endforeach
+
+              </select>
+
+              <button type="submit" class="btn btn-success">
+                Tìm kiếm
+              </button>
+
+              <a href="{{ url()->current() }}" class="btn btn-warning">
+                Reset
+              </a>
+            </div>
+
+          </div>
+        </form>
+
     <div class="col-xl-12 col-lg-12">
         <div class="card shadow mb-4">
             <div class="card-header d-flex flex-row align-items-center justify-content-between">

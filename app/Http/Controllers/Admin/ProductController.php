@@ -43,16 +43,31 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        $posts = Post::where('sort_by', 'Product')->orderBy('id', 'DESC')->paginate(10);
-        return view('admin.product.index', compact('posts'));
+        $category = Category::where('sort_by', 'Product')
+    ->where('parent', 0)
+    ->with('children')
+    ->orderByDesc('view')
+    ->get();
+        $posts = Post::query()
+            ->where('sort_by', 'Product')
+            ->when(request('key'), function ($q, $key) {
+                $q->where('name', 'like', "%{$key}%");
+            })
+            ->when(request('cid'), function ($q, $cid) {
+                $q->where('category_id', $cid);
+            })
+            ->orderByDesc('id')
+            ->paginate(40)
+            ->withQueryString();
+
+        return view('admin.product.index', compact('posts', 'category'));
     }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    
+    
     public function create()
     {
         $category = Category::where('sort_by', 'Product')->get();
