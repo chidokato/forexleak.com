@@ -46,11 +46,15 @@ class HomeController extends Controller
         $posts = Post::where('sort_by', 'News')->orderBy('id', 'desc')->take(4)->get();
         $brokers = Section::where('post_id', 730)->orderBy('id', 'desc')->take(5)->get();
 
+        $indicators = Section::where('post_id', 729)->get();
+
         return view('pages.home', compact(
             'slider',
             'product',
             'posts',
             'brokers',
+            'indicators',
+
         ));
     }
 
