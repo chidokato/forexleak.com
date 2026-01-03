@@ -243,11 +243,11 @@
                 @foreach($posts as $val)
                 <div class="swiper-slide hm2-blog-card bg-white">
                     <div class="feature-img rounded-top overflow-hidden">
-                        <a href="{{$val->category->slug}}/{{$val->slug}}"><img src="data/images/{{$val->img}}" alt="feature" class="img-fluid img300"></a>
+                        <a href="{{$val->category?->slug}}/{{$val->slug}}"><img src="data/images/{{$val->img}}" alt="feature" class="img-fluid img300"></a>
                     </div>
                     <div class="hm2-blog-card-content position-relative">
-                        <a href="{{$val->category->slug}}" class="tag-btn rounded-pill position-absolute">{{$val->category->name}}</a>
-                        <a href="{{$val->category->slug}}/{{$val->slug}}">
+                        <a href="{{$val->category?->slug}}" class="tag-btn rounded-pill position-absolute">{{$val->category?->name}}</a>
+                        <a href="{{$val->category?->slug}}/{{$val->slug}}">
                             <h3 class="h5 mb-3 text-truncate-set text-truncate-set-1" title="{{$val->name}}">{{$val->name}}</h3>
                         </a>
                         <p class="text-truncate-set text-truncate-set-3">{{$val->detail}}</p>
