@@ -131,11 +131,11 @@
                             @if($key==0)
                             <div class="blog-card bg-white deep-shadow rounded">
                                 <div class="feature-thumb rounded-2 overflow-hidden position-relative">
-                                    <a href="{{$val->category->slug}}/{{$val->slug}}"><img src="data/images/{{$val->img}}" alt="{{$val->name}}" class="img-fluid img320"></a>
-                                    <span class="position-absolute category-btn">{{$val->category->name}}</span>
+                                    <a href="{{$val->category?->slug}}/{{$val->slug}}"><img src="data/images/{{$val->img}}" alt="{{$val->name}}" class="img-fluid img320"></a>
+                                    <span class="position-absolute category-btn">{{$val->category?->name}}</span>
                                 </div>
                                 <div class="blog-content-wrapper mt-4">
-                                    <a href="{{$val->category->slug}}/{{$val->slug}}">
+                                    <a href="{{$val->category?->slug}}/{{$val->slug}}">
                                         <h3 class="text-truncate-set text-truncate-set-2">{{$val->name}}</h3>
                                     </a>
                                     <p class="mt-3 text-truncate-set text-truncate-set-3">{{$val->detail}}</p>
@@ -165,11 +165,11 @@
                                 <div class="col-xl-12">
                                     <div class="blog-card d-flex align-items-center bg-white deep-shadow p-25 rounded-2">
                                         <div class="feature-thumb position-relative">
-                                            <a href="{{$val->category->slug}}/{{$val->slug}}"><img src="data/images/{{$val->img}}" alt="{{$val->name}}" class="img-fluid rounded-left img200"></a>
-                                            <span class="position-absolute category-btn">{{$val->category->name}}</span>
+                                            <a href="{{$val->category?->slug}}/{{$val->slug}}"><img src="data/images/{{$val->img}}" alt="{{$val->name}}" class="img-fluid rounded-left img200"></a>
+                                            <span class="position-absolute category-btn">{{$val->category?->name}}</span>
                                         </div>
                                         <div class="blog-content ms-0 ms-sm-4 mt-3 mt-sm-0 flex-1">
-                                            <a href="{{$val->category->slug}}/{{$val->slug}}">
+                                            <a href="{{$val->category?->slug}}/{{$val->slug}}">
                                                 <h4 class="text-truncate-set text-truncate-set-2">{{$val->name}}</h4>
                                             </a>
                                             <div class="blog-author mt-4 d-flex align-items-start align-items-sm-center justify-content-between">
