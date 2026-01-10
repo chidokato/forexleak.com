@@ -83,7 +83,7 @@ class HomeController extends Controller
         if ($slug=='brokers' || $slug=='signals-vault') {
             return view('pages.brokers', compact('data', 'section'));
         }
-        if ($slug=='premium-indicators') {
+        if ($slug=='best-deal') {
             return view('pages.premium-indicators', compact('data', 'section'));
         }
     }
