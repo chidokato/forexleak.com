@@ -47,10 +47,10 @@ class ProductController extends Controller
     public function index()
     {
         $category = Category::where('sort_by', 'Product')
-    ->where('parent', 0)
-    ->with('children')
-    ->orderByDesc('view')
-    ->get();
+        ->where('parent', 0)
+        ->with('children')
+        ->orderByDesc('view')
+        ->get();
         $posts = Post::query()
             ->where('sort_by', 'Product')
             ->when(request('key'), function ($q, $key) {
@@ -59,11 +59,33 @@ class ProductController extends Controller
             ->when(request('cid'), function ($q, $cid) {
                 $q->where('category_id', $cid);
             })
+            ->orderByRaw('CASE
+                WHEN priority IN (1,2,3,4) THEN priority
+                ELSE 999
+                END ASC')
             ->orderByDesc('id')
             ->paginate(40)
             ->withQueryString();
 
         return view('admin.product.index', compact('posts', 'category'));
+    }
+
+
+    public function ajaxUpdatePriority(Request $request, Post $post)
+    {
+        $data = $request->validate([
+            'priority' => ['required', 'integer', 'in:1,2,3,4'],
+        ]);
+
+        $post->priority = (int) $data['priority'];
+        $post->save();
+
+        return response()->json([
+            'ok' => true,
+            'message' => 'Đã cập nhật độ ưu tiên',
+            'id' => $post->id,
+            'priority' => $post->priority,
+        ]);
     }
 
     
@@ -162,20 +184,30 @@ class ProductController extends Controller
     {
         $data = $request->all();
 
-        $request->validate([
-            'file' => 'required|file|max:2048', // giới hạn 2MB
-        ]);
+        // $request->validate([
+        //     'file' => 'required|file|max:20048', // giới hạn 20MB
+        // ]);
 
         $post = Post::find($id);
         $post->slug = $data['slug'];
         $post->name = $data['name'];
-        $post->category_id = $data['category_id'];
+        $post->category_id = (int) $data['category_id'];
         $post->detail = $data['detail'];
         $post->content = $data['content'];
         $post->title = $data['title'];
         $post->description = $data['description'];
         $post->price = $data['price'];
         $post->price_max = $data['price_max'];
+
+        $ids = $data['category_ids'] ?? [];
+        $ids = array_values(array_unique(array_map('intval', $ids)));
+
+        // đảm bảo danh mục chính luôn nằm trong danh sách nhiều
+        if (!in_array($post->category_id, $ids, true)) {
+            array_unshift($ids, $post->category_id);
+        }
+
+        $post->category_ids = $ids;
 
         if ($request->file('file')) {
             if (!empty($post->filename)) {

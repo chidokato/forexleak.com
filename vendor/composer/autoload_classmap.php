@@ -14,6 +14,7 @@ return array(
     'App\\Http\\Controllers\\Admin\\CartController' => $baseDir . '/app/Http/Controllers/Admin/CartController.php',
     'App\\Http\\Controllers\\Admin\\CategoryController' => $baseDir . '/app/Http/Controllers/Admin/CategoryController.php',
     'App\\Http\\Controllers\\Admin\\CustomerController' => $baseDir . '/app/Http/Controllers/Admin/CustomerController.php',
+    'App\\Http\\Controllers\\Admin\\DepositTransactionController' => $baseDir . '/app/Http/Controllers/Admin/DepositTransactionController.php',
     'App\\Http\\Controllers\\Admin\\DistrictController' => $baseDir . '/app/Http/Controllers/Admin/DistrictController.php',
     'App\\Http\\Controllers\\Admin\\ImagesController' => $baseDir . '/app/Http/Controllers/Admin/ImagesController.php',
     'App\\Http\\Controllers\\Admin\\MainController' => $baseDir . '/app/Http/Controllers/Admin/MainController.php',

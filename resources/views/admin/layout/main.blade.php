@@ -10,6 +10,7 @@
     <meta name="author" content="">
 
     <title>SB Admin 2 - Dashboard</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Custom fonts for this template-->
     <link href="admin_asset/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

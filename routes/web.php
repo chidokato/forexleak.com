@@ -99,6 +99,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('page',PageController::class);
         Route::resource('post',PostController::class);
         Route::resource('product',ProductController::class);
+        Route::post('products/{post}/priority', [ProductController::class, 'ajaxUpdatePriority'])->name('product.ajaxUpdatePriority');
 
         Route::group(['prefix'=>'section'],function(){
             Route::get('list/{id}', [SectionController::class, 'index']);

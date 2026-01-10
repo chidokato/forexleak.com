@@ -59,6 +59,7 @@
                   <th>User</th>
                   <th>Sort By</th>
                   <th>date</th>
+                  <th>Priority</th>
                   <th></th>
                 </tr>
               </thead>
@@ -75,6 +76,15 @@
                     <td>Admin</td>
                     <td>{{ $val->sort_by }}</td>
                     <td>{{ $val->updated_at }}</td>
+                    <td style="min-width:120px">
+                      <select class="form-control form-control-sm js-priority" data-id="{{ $val->id }}">
+                        @for($i=1; $i<=4; $i++)
+                          <option value="{{ $i }}" {{ (int)($val->priority ?? 4) === $i ? 'selected' : '' }}>
+                            Ưu tiên {{ $i }}
+                          </option>
+                        @endfor
+                      </select>
+                    </td>
                     <td class="d-flex gap-2">
                       <a href="{{ route('product.edit', $val->id) }}"><i class="fas fa-edit"></i></a>
 
@@ -105,4 +115,47 @@
 <style type="text/css">
     .line-height{line-height: 71px;}
 </style>
+
+
+
+
+@endsection
+
+@section('js')
+<script>
+$(function () {
+  $.ajaxSetup({
+    headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
+  });
+
+  $(document).on('change', '.js-priority', function () {
+    const $select = $(this);
+    const id = $select.data('id');
+    const priority = $select.val();
+    const oldVal = $select.data('old') ?? priority;
+
+    $select.prop('disabled', true);
+
+    $.post("{{ url('admin/products') }}/" + id + "/priority", { priority: priority })
+      .done(function (res) {
+        if (res && res.ok) {
+          $select.data('old', priority);
+          // tuỳ bạn: reload để thấy đúng sắp xếp ngay
+          window.location.reload();
+        } else {
+          alert('Cập nhật thất bại');
+          $select.val(oldVal).trigger('change.select2');
+        }
+      })
+      .fail(function (xhr) {
+        alert(xhr.responseJSON?.message || 'Lỗi cập nhật');
+        $select.val(oldVal).trigger('change.select2');
+      })
+      .always(function () {
+        $select.prop('disabled', false);
+      });
+  });
+});
+</script>
+
 @endsection

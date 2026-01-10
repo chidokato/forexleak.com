@@ -105,15 +105,21 @@
             </div>
             <div class="card-body">
                 <div class="form-group">
-                    <label class="">Danh mục</label>
-                    <select name='category_id' class="form-control select2" id="parent">
-                      <option value="">--Chọn danh mục--</option>
-                      @foreach($category as $val)
-                      <?php addeditcat ($category,0,$str='',$data['category_id']); ?>
-                      @endforeach
-                    </select>
-                    <div id="list_parent"></div>
+                  <label>Danh mục</label>
+                  <select required name="category_id" class="form-control select2" id="category_id">
+                    <?php addeditcat($category, 0, '', old('category_id', $data->category_id ?? 0)); ?>
+                  </select>
                 </div>
+
+                <div class="form-group">
+                  <label>Chọn nhiều danh mục</label>
+                  <select multiple name="category_ids[]" class="form-control select2" id="category_ids">
+                    <?php addeditcat($category, 0, '', old('category_ids', $data->category_ids ?? [])); ?>
+                  </select>
+                </div>
+
+
+
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-append">
@@ -202,23 +208,30 @@ function delete_row(button) {
 }
 </script>
 
-<?php 
-    function addeditcat ($data, $parent=0, $str='',$select=0)
-    {
-        foreach ($data as $value) {
-            if ($value['parent'] == $parent) {
-                if($select != 0 && $value['id'] == $select )
-                { ?>
-                    <option value="<?php echo $value['id']; ?>" selected> <?php echo $str.$value['name']; ?> </option>
-                <?php } else { ?>
-                    <option value="<?php echo $value['id']; ?>" > <?php echo $str.$value['name']; ?> </option>
-                <?php }
-                
-                addeditcat ($data, $value['id'], $str.'___',$select);
-            }
+<?php
+function addeditcat($data, $parent = 0, $str = '', $selected = [])
+{
+    // $selected có thể là: int/string hoặc array
+    $selectedArr = is_array($selected) ? $selected : (strlen((string)$selected) ? [$selected] : []);
+    $selectedArr = array_map('intval', $selectedArr);
+
+    foreach ($data as $value) {
+        // nếu $data là Eloquent model -> dùng $value->parent, $value->id, $value->name
+        $id     = is_array($value) ? (int)$value['id']     : (int)$value->id;
+        $p      = is_array($value) ? (int)$value['parent'] : (int)$value->parent;
+        $name   = is_array($value) ? $value['name']        : $value->name;
+
+        if ($p === (int)$parent) {
+            $isSelected = in_array($id, $selectedArr, true);
+
+            echo '<option value="'.$id.'"'.($isSelected ? ' selected' : '').'>'
+                .$str.$name.
+            '</option>';
+
+            addeditcat($data, $id, $str.'___', $selectedArr);
         }
     }
+}
 ?>
-
 
 @endsection

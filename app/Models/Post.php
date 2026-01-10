@@ -10,6 +10,16 @@ class Post extends Model
     use HasFactory;
     public $timestamps = true;
 
+    protected $fillable = [
+      // ...
+      'priority',
+    ];
+
+
+    protected $casts = [
+        'category_ids' => 'array',
+    ];
+
     public function Category()
     {
         return $this->hasOne(Category::class, 'id', 'category_id');

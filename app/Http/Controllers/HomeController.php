@@ -111,12 +111,28 @@ class HomeController extends Controller
                 $cats = Category::where('sort_by','Product')->where('parent','>',0)->get();
 
                 $cat_array = $request->input('categories', $cat_array);
-                $query = Post::query()->orderBy('id', 'DESC');
+                $query = Post::query()
+                    ->orderByRaw('CASE
+                        WHEN COALESCE(priority, 4) IN (1,2,3,4) THEN COALESCE(priority, 4)
+                        ELSE 999
+                    END ASC')
+                    ->orderByDesc('id');
+
                 if ($key = $request->get('key', '')) {
                     $query->where('name', 'like', '%' . $key . '%');
                 }
                 if (!empty($cat_array)) {
-                    $query->whereIn('category_id', $cat_array);
+                    $query->where(function ($q) use ($cat_array) {
+                        // match theo category_id (cột int)
+                        $q->whereIn('category_id', $cat_array);
+
+                        // match theo category_ids (cột json)
+                        $q->orWhere(function ($q2) use ($cat_array) {
+                            foreach ($cat_array as $cid) {
+                                $q2->orWhereJsonContains('category_ids', (int)$cid);
+                            }
+                        });
+                    });
                 }
                 $posts = $query->paginate($request->get('per_page', 30));
 
