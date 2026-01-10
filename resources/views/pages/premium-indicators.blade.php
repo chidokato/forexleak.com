@@ -26,7 +26,11 @@
     </div>
 </section> -->
 <!--breadcrumb area end-->
-
+<section class="container pt-5">
+    <div class="main-content-detail">
+        {!! $data->content1 !!}
+    </div>
+</section>
 
 <!--pricing section-->
 <section class="pricing-tab-section light-bg pb-120 position-relative zindex-1 overflow-hidden">
@@ -70,8 +74,6 @@
     <div class="main-content-detail">
         {!! $data->content !!}
     </div>
-    
-    
 </section>
 
 
