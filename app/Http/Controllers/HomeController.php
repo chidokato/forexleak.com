@@ -42,7 +42,8 @@ class HomeController extends Controller
     public function index()
     {
         $slider = Slider::orderBy('id', 'desc')->get();
-        $product = Post::where('sort_by', 'Product')->orderBy('id', 'desc')->take(18)->get();
+        $product = Post::where('sort_by', 'Product')->orderByRaw('CASE WHEN COALESCE(priority, 4) IN (1,2,3,4) THEN COALESCE(priority, 4) ELSE 999 END ASC')
+                    ->orderByDesc('id')->take(18)->get();
         $posts = Post::where('sort_by', 'News')->orderBy('id', 'desc')->take(4)->get();
         $brokers = Section::where('post_id', 730)->orderBy('id', 'desc')->take(5)->get();
 
@@ -112,10 +113,7 @@ class HomeController extends Controller
 
                 $cat_array = $request->input('categories', $cat_array);
                 $query = Post::query()
-                    ->orderByRaw('CASE
-                        WHEN COALESCE(priority, 4) IN (1,2,3,4) THEN COALESCE(priority, 4)
-                        ELSE 999
-                    END ASC')
+                    ->orderByRaw('CASE WHEN COALESCE(priority, 4) IN (1,2,3,4) THEN COALESCE(priority, 4) ELSE 999 END ASC')
                     ->orderByDesc('id');
 
                 if ($key = $request->get('key', '')) {
@@ -158,7 +156,8 @@ class HomeController extends Controller
     {
         $post = Post::where('slug', $slug)->first();
         $sections = Section::where('post_id', $post->id)->orderBy('stt', 'asc')->get();
-        $related_post = Post::where('category_id', $post->category_id)->whereNotIn('id', [$post->id])->orderBy('id', 'desc')->take(10)->get();
+        $related_post = Post::where('category_id', $post->category_id)->whereNotIn('id', [$post->id])->orderByRaw('CASE WHEN COALESCE(priority, 4) IN (1,2,3,4) THEN COALESCE(priority, 4) ELSE 999 END ASC')
+                    ->orderByDesc('id')->take(10)->get();
         if ($post->sort_by == 'Product') {
             return view('pages.project', compact(
                 'post',
