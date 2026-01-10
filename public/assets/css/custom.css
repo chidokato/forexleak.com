@@ -33,7 +33,7 @@ body{     background-color: #1e1e2c; }
     padding-right: 0;
 }
 
-.main-content-detail{}
+.main-content-detail h1{ background-color:none !important }
 .main-content-detail ul{ padding-left:15px; margin-bottom:1rem }
 .main-content-detail ul li{ list-style:circle; }
 .main-content-detail h2{ font-size:2rem }
@@ -184,4 +184,65 @@ body{     background-color: #1e1e2c; }
     .bd-content-wrapper{     padding: 10px; }
     .bd-content-wrapper h1{font-size: 1.5rem}
 
+}
+
+
+
+.user-content{
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.75;
+  color: #111;
+}
+
+/* ĐÈ inline style phổ biến */
+.user-content *{
+  font-family: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  color: inherit !important;
+
+  background: transparent !important;
+  text-align: inherit !important;
+  letter-spacing: normal !important;
+}
+
+/* Link */
+.user-content a{
+  color: #2563eb !important;
+  text-decoration: underline !important;
+}
+
+/* Khoảng cách chuẩn */
+.user-content p{ margin: 0 0 1rem; }
+.user-content h1{ font-size: 1.8rem; margin: 1.2rem 0 .8rem; }
+.user-content h2{ font-size: 1.5rem; margin: 1.1rem 0 .7rem; }
+.user-content h3{ font-size: 1.25rem; margin: 1rem 0 .6rem; }
+.user-content ul, .user-content ol{ margin: 0 0 1rem 1.25rem; }
+.user-content li{ margin: .25rem 0; }
+
+/* Ảnh/iframe không phá layout */
+.user-content img, .user-content video{
+  max-width: 100% !important;
+  height: auto !important;
+}
+.user-content iframe{
+  max-width: 100% !important;
+}
+
+/* Table */
+.user-content table{
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin: 0 0 1rem;
+}
+.user-content th, .user-content td{
+  border: 1px solid #e5e7eb !important;
+  padding: 8px 10px !important;
+  vertical-align: top !important;
+}
+
+/* Không cho font <font> / span bậy bạ làm màu nền */
+.user-content span, .user-content font{
+  background: transparent !important;
 }

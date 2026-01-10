@@ -74,7 +74,7 @@
             </div>
             
         </div>
-        <div class="col-xl-9 main-content-detail mt-5">
+        <div class="col-xl-9 main-content-detail mt-5 user-content">
             {!! $post->content !!}
         </div>
         <div class="col-xl-3">
