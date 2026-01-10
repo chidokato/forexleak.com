@@ -94,6 +94,7 @@ class PageController extends Controller
         $post->sort_by = 'page';
         $post->name = $data['name'];
         $post->content = $data['content'];
+        $post->content1 = $data['content1'];
         $post->slug = Str::slug($data['name'], '-');
         
         $post->title = $data['title'];
@@ -153,6 +154,7 @@ class PageController extends Controller
         $post->name = $data['name'];
         $post->slug = $data['slug'];
         $post->content = $data['content0'];
+        $post->content1 = $data['content1'];
         $post->title = $data['title'];
         $post->description = $data['description'];
         if ($request->hasFile('img')) {

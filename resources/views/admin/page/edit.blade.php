@@ -63,7 +63,22 @@
         <div class="linkneo" id="section2">
             <div class="card shadow mb-4" >
                 <span class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Nội dung</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Nội dung trên</h6>
+                </span>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <textarea class="form-control editor" name="content1"> {!! $data->content1 !!} </textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="linkneo" id="section2">
+            <div class="card shadow mb-4" >
+                <span class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Nội dung dưới</h6>
                 </span>
                 <div class="card-body">
                     <div class="row">
