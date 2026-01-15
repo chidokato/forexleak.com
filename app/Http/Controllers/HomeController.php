@@ -25,20 +25,6 @@ use File;
 
 class HomeController extends Controller
 {
-    function __construct()
-    {
-        $setting = Setting::find('1');
-        $menu = Menu::with('children')->where('parent', 0)->orderBy('view', 'asc')->get();
-        $categorys = Category::orderBy('view', 'asc')->where('parent',0)->get();
-        $RecentNews = Post::where('sort_by', 'News')->orderBy('id', 'desc')->take(5)->get();
-        view()->share( [
-            'setting'=>$setting,
-            'menu'=>$menu,
-            'categorys'=>$categorys,
-            'RecentNews'=>$RecentNews,
-        ]);
-    }
-
     public function index()
     {
         $slider = Slider::orderBy('id', 'desc')->get();
@@ -49,12 +35,19 @@ class HomeController extends Controller
 
         $indicators = Section::where('post_id', 729)->get();
 
+        $expert_advisor = Post::where('category_id', '118')->take(12)->get();
+        $Forex_Trading_Courses = Post::where('category_id', '124')->take(12)->get();
+        
+
+
         return view('pages.home', compact(
             'slider',
             'product',
             'posts',
             'brokers',
             'indicators',
+            'expert_advisor',
+            'Forex_Trading_Courses',
 
         ));
     }
