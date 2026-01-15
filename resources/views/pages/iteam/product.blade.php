@@ -1,4 +1,4 @@
-<div class="hm2-blog-card bg-white deep-shadow">
+<div class="hm2-blog-card bg-white deep-shadow ss11">
     <div class="feature-img rounded-top overflow-hidden">
         <a href="{{$val->category?->slug}}/{{$val->slug}}"><img src="data/images/{{$val->img}}" alt="feature" class="img-fluid img150"></a>
     </div>

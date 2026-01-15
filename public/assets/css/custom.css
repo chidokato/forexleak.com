@@ -86,7 +86,7 @@ body{     background-color: #1e1e2c; }
     overflow: hidden;
 }
 .breadcrumb-area {
-    padding: 70px 0 50px 0;
+    padding: 20px 0 20px 0;
 }
 .hm-blog-sidebar .rounded-circle {
     width: 100px;
@@ -175,16 +175,7 @@ body{     background-color: #1e1e2c; }
 
 .pd-2{ padding:2rem }
 
-@media (max-width: 414px){
-    .breadcrumb-content h2{ font-size: 1.2rem; }
-    .breadcrumb-area nav ol li{ font-size:.8rem }
-    .breadcrumb-item.active{ width:70%;     overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap; }
-    .bd-content-wrapper{     padding: 10px; }
-    .bd-content-wrapper h1{font-size: 1.5rem}
 
-}
 
 .user-content{
   font-family: inherit;
@@ -243,4 +234,33 @@ body{     background-color: #1e1e2c; }
 /* Không cho font <font> / span bậy bạ làm màu nền */
 .user-content span, .user-content font{
   background: transparent !important;
+}
+
+
+.ss11{}
+
+
+
+
+
+
+
+@media (max-width: 414px){
+    .breadcrumb-content h2{ font-size: 1.2rem; }
+    .breadcrumb-area nav ol li{ font-size:.8rem }
+    .breadcrumb-item.active{ width:70%;     overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+    .bd-content-wrapper{     padding: 10px; }
+    .bd-content-wrapper h1{font-size: 1.5rem}
+    .ss11 .feature-img img{ height:100px }
+    .hm2-blog-card .hm2-blog-card-content .tag-btn {
+        transform: translateX(0%) !important;
+    }
+    .hm2-blog-card .hm2-blog-card-content {
+        padding: 22px 5px 10px 5px !important;
+    }
+    .aa11{ padding:5px !important }
+    .hm2-blog-card .hm2-blog-card-content h3 {font-size: .7rem !important;}
+
 }

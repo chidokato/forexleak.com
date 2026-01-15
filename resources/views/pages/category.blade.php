@@ -34,7 +34,7 @@
                 <div class="hm-blog-grid-left">
                     <div class="row g-4">
                         @foreach($posts as $val)
-                        <div class="col-md-2">
+                        <div class="col-md-2 col-4 aa11">
                             @include('pages.iteam.product')
                         </div>
                         @endforeach

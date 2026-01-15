@@ -13,9 +13,6 @@
 
 @section('content')
 
-<!-- @include('layout.slider') -->
-
-<!-- <section class="hm-blog-grids pt-50 pb-50 overflow-hidden shop"> -->
 <section class="gm-blog-section pb-50 pt-50 dark-bg position-relative zindex-1 overflow-hidden">
     <img src="assets/img/shapes/gm-blog-gradient-1.png" alt="not found" class="position-absolute left-bottom">
     <img src="assets/img/shapes/gm-blog-gradient-3.png" alt="not found" class="position-absolute left-center">
@@ -33,7 +30,7 @@
                 <div class="hm-blog-grid-left">
                     <div class="row g-4">
                         @foreach($expert_advisor as $val)
-                        <div class="col-md-2">
+                        <div class="col-md-2 col-4 aa11">
                             @include('pages.iteam.product')
                         </div>
                         @endforeach
@@ -45,7 +42,6 @@
     </div>
 </section>
 
-<!-- <section class="hm-blog-grids pt-30 pb-50 overflow-hidden shop"> -->
 <section class="gm-blog-section pb-50 pt-50 dark-bg position-relative zindex-1 overflow-hidden">
     <img src="assets/img/shapes/gm-blog-gradient-1.png" alt="not found" class="position-absolute left-bottom">
     <img src="assets/img/shapes/gm-blog-gradient-3.png" alt="not found" class="position-absolute left-center">
