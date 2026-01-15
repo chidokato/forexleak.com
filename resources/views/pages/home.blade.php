@@ -15,7 +15,11 @@
 
 <!-- @include('layout.slider') -->
 
-<section class="hm-blog-grids pt-50 pb-50 overflow-hidden shop">
+<!-- <section class="hm-blog-grids pt-50 pb-50 overflow-hidden shop"> -->
+<section class="gm-blog-section pb-120 pt-100 dark-bg position-relative zindex-1 overflow-hidden">
+    <img src="assets/img/shapes/gm-blog-gradient-1.png" alt="not found" class="position-absolute left-bottom">
+    <img src="assets/img/shapes/gm-blog-gradient-3.png" alt="not found" class="position-absolute left-center">
+    <img src="assets/img/shapes/gm-blog-gradient-2.png" alt="not found" class="position-absolute right-bottom">
     <div class="container">
         <div class="row justify-content-center mb-20">
             <div class="col-lg-6">
@@ -41,7 +45,11 @@
     </div>
 </section>
 
-<section class="hm-blog-grids pt-30 pb-50 overflow-hidden shop">
+<!-- <section class="hm-blog-grids pt-30 pb-50 overflow-hidden shop"> -->
+<section class="gm-blog-section pb-120 pt-100 dark-bg position-relative zindex-1 overflow-hidden">
+    <img src="assets/img/shapes/gm-blog-gradient-1.png" alt="not found" class="position-absolute left-bottom">
+    <img src="assets/img/shapes/gm-blog-gradient-3.png" alt="not found" class="position-absolute left-center">
+    <img src="assets/img/shapes/gm-blog-gradient-2.png" alt="not found" class="position-absolute right-bottom">
     <div class="container">
         <div class="row justify-content-center mb-20">
             <div class="col-lg-6">
