@@ -16,7 +16,7 @@
 <!-- @include('layout.slider') -->
 
 <!-- <section class="hm-blog-grids pt-50 pb-50 overflow-hidden shop"> -->
-<section class="gm-blog-section pb-120 pt-100 dark-bg position-relative zindex-1 overflow-hidden">
+<section class="gm-blog-section pb-50 pt-50 dark-bg position-relative zindex-1 overflow-hidden">
     <img src="assets/img/shapes/gm-blog-gradient-1.png" alt="not found" class="position-absolute left-bottom">
     <img src="assets/img/shapes/gm-blog-gradient-3.png" alt="not found" class="position-absolute left-center">
     <img src="assets/img/shapes/gm-blog-gradient-2.png" alt="not found" class="position-absolute right-bottom">
@@ -46,7 +46,7 @@
 </section>
 
 <!-- <section class="hm-blog-grids pt-30 pb-50 overflow-hidden shop"> -->
-<section class="gm-blog-section pb-120 pt-100 dark-bg position-relative zindex-1 overflow-hidden">
+<section class="gm-blog-section pb-50 pt-50 dark-bg position-relative zindex-1 overflow-hidden">
     <img src="assets/img/shapes/gm-blog-gradient-1.png" alt="not found" class="position-absolute left-bottom">
     <img src="assets/img/shapes/gm-blog-gradient-3.png" alt="not found" class="position-absolute left-center">
     <img src="assets/img/shapes/gm-blog-gradient-2.png" alt="not found" class="position-absolute right-bottom">
@@ -77,7 +77,7 @@
 
 
 <!--pricing section-->
-<section class="pricing-tab-section light-bg pb-100 position-relative zindex-1 overflow-hidden">
+<section class="pricing-tab-section light-bg pb-50 position-relative zindex-1 overflow-hidden">
     <img src="assets/img/shapes/line-red-top.png" alt="line shape" class="position-absolute right-top d-none d-lg-block">
     <img src="assets/img/shapes/line-red.svg" alt="line shape" class="position-absolute left-bottom">
     <div class="container">
