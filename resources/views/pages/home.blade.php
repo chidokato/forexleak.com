@@ -91,7 +91,7 @@
             <div class="row g-4 justify-content-center mt-4">
                 @foreach($indicators as $val)
                 <div class="col-lg-4 col-md-6">
-                    <div class="overflow-hidden position-relative bg-white deep-shadow">
+                    <div class="overflow-hidden position-relative bg-white deep-shadow" style="    border-radius: 20px;">
                         <!-- <span class="popular-badge position-absolute text-center fw-bold">Most Popular</span> -->
                         <!-- <p class="mt-4">Packed with great features, such as oneclick software installs,24/7 support</p> -->
                         {!! $val->content !!}
