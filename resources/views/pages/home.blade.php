@@ -15,12 +15,12 @@
 
 <!-- @include('layout.slider') -->
 
-<section class="hm-blog-grids pt-50 pb-100 overflow-hidden shop">
+<section class="hm-blog-grids pt-50 pb-50 overflow-hidden shop">
     <div class="container">
         <div class="row justify-content-center mb-20">
             <div class="col-lg-6">
                 <div class="section-heading text-center">
-                    <h2>Expert Advisor</h2>
+                    <h2>Expert <span class="host-web-gd-text">Advisor</span></h2>
                 </div>
             </div>
         </div>
@@ -41,12 +41,12 @@
     </div>
 </section>
 
-<section class="hm-blog-grids pt-50 pb-100 overflow-hidden shop">
+<section class="hm-blog-grids pt-30 pb-50 overflow-hidden shop">
     <div class="container">
         <div class="row justify-content-center mb-20">
             <div class="col-lg-6">
                 <div class="section-heading text-center">
-                    <h2>Forex Trading Courses</h2>
+                    <h2>Forex  <span class="host-web-gd-text">Trading Courses</span></h2>
                 </div>
             </div>
         </div>
@@ -69,7 +69,7 @@
 
 
 <!--pricing section-->
-<section class="pricing-tab-section light-bg pb-120 position-relative zindex-1 overflow-hidden">
+<section class="pricing-tab-section light-bg pb-100 position-relative zindex-1 overflow-hidden">
     <img src="assets/img/shapes/line-red-top.png" alt="line shape" class="position-absolute right-top d-none d-lg-block">
     <img src="assets/img/shapes/line-red.svg" alt="line shape" class="position-absolute left-bottom">
     <div class="container">
