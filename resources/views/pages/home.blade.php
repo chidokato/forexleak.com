@@ -95,7 +95,7 @@
                         <!-- <span class="popular-badge position-absolute text-center fw-bold">Most Popular</span> -->
                         <!-- <p class="mt-4">Packed with great features, such as oneclick software installs,24/7 support</p> -->
                         {!! $val->content !!}
-                        <a href="#" class="template-btn secondary-btn w-100 text-center mt-40">Purchase Plan</a>
+                        <!-- <a href="#" class="template-btn secondary-btn w-100 text-center mt-40">Purchase Plan</a> -->
                     </div>
                 </div>
                 @endforeach
